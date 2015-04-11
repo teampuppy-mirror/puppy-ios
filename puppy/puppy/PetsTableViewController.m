@@ -7,7 +7,7 @@
 //
 
 #import "PetsTableViewController.h"
-#import "Pet.h"
+#import "PetViewController.h"
 
 @interface PetsTableViewController ()
 
@@ -17,11 +17,13 @@
 
 - (void)viewDidLoad {
     _pets = [[NSMutableArray alloc]init];
+    self.title = @"Pets";
     Pet * pet = [[Pet alloc]init];
     pet.nome = @"Juarezinho";
     pet.cor = @"Branquinho";
+    pet.porte = @"Filhote";
+    pet.localizacao = @"Porto Alegre";
     pet.especie = @"Cachorro";
-    pet.faixaEtaria = @"Filhote";
     pet.urlMiniatura = @"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg";
     pet.fotos = @[@"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg",@"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg",@"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg"];
     
@@ -60,7 +62,7 @@
     
     Pet * pet = _pets[indexPath.row];
     
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     UIImageView * imageViewMiniatura = [[UIImageView alloc]init];
     UIView * grayBackgroundMiniatura = [[UIView alloc]init];
@@ -69,9 +71,23 @@
     [cell addSubview:grayBackgroundMiniatura];
     imageViewMiniatura.alpha = 0.0;
     
-    UILabel * lblNome = [[UILabel alloc]initWithFrame:CGRectMake(15, 130, self.view.frame.size.width - 145, 36)];
+    UILabel * lblNome = [[UILabel alloc]initWithFrame:CGRectMake(130, 15, self.view.frame.size.width - 145, 36)];
+    lblNome.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:21];
     lblNome.text = pet.nome;
+    UILabel * lblEspeciePorte = [[UILabel alloc] initWithFrame:CGRectMake(130, 51, self.view.frame.size.width - 145, 36)];
+    lblEspeciePorte.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
+    lblEspeciePorte.text = [NSString stringWithFormat:@"%@   %@",pet.especie,pet.porte];
     
+    [cell addSubview:lblEspeciePorte];
+    
+    UILabel * lblCidade = [[UILabel alloc]initWithFrame:CGRectMake(160, 87, self.view.frame.size.width - 145, 36)];
+    lblCidade.text = pet.localizacao;
+    lblCidade.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
+    [cell addSubview:lblCidade];
+    
+    UIImageView * pinImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"map-pin-hi.png"]];
+    pinImageView.frame = CGRectMake(130, 89, 20, 25);
+    [cell addSubview:pinImageView];
     
     
     dispatch_queue_t myCustomQueue = dispatch_queue_create("com.example.MyCustomQueue", NULL);
@@ -96,6 +112,16 @@
     
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    _selectedPet = _pets[indexPath.row];
+    [self performSegueWithIdentifier:@"goToPet" sender:nil];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    PetViewController * destination = segue.destinationViewController;
+    destination.selectedPet = _selectedPet;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Pet.h"
 
 @interface PetsTableViewController : UITableViewController
 @property NSMutableArray * pets;
+@property Pet * selectedPet;
 @end

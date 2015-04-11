@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Pet.h"
 
 @interface PetViewController : UIViewController
+@property Pet * selectedPet;
 
 @end

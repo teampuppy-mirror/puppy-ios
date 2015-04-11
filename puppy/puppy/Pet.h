@@ -14,7 +14,7 @@
 @property NSString * cor;
 @property NSString * especie;
 @property NSString * porte;
-@property NSString * localização;
+@property NSString * localizacao;
 @property NSString * faixaEtaria;
 @property BOOL like;
 
