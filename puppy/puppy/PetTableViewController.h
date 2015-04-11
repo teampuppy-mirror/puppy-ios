@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Pet.h"
 
-@interface PetViewController : UIViewController
+@interface PetTableViewController : UITableViewController
 @property Pet * selectedPet;
 
 @end

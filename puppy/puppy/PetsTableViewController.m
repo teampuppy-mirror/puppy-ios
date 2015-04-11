@@ -7,7 +7,7 @@
 //
 
 #import "PetsTableViewController.h"
-#import "PetViewController.h"
+#import "PetTableViewController.h"
 
 @interface PetsTableViewController ()
 
@@ -120,7 +120,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    PetViewController * destination = segue.destinationViewController;
+    PetTableViewController * destination = segue.destinationViewController;
     destination.selectedPet = _selectedPet;
 }
 
