@@ -33,14 +33,19 @@
     
     
     [_pets addObject:pet];
-    
+    [self addFilterButton];
     [super viewDidLoad];
+
+}
+
+-(void)addFilterButton{
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"Filtrar" style:UIBarButtonItemStyleBordered target:self action:@selector(teste)];
+    rightItem.tag = 891;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+-(void)teste{
 }
 
 - (void)didReceiveMemoryWarning {
