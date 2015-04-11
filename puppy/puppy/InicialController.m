@@ -7,6 +7,7 @@
 //
 
 #import "InicialController.h"
+#import "UIColor+hexString.h"
 
 @interface InicialController ()
 
@@ -16,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self createCover];
+    
     
 }
 
@@ -26,11 +29,13 @@
     self.imageCover.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
     self.imageCover.contentMode = UIViewContentModeScaleAspectFill;
     self.imageCover.clipsToBounds = YES;
+    
     self.imageCover = [[UIImageView alloc] initWithImage:cover];
+    self.btnLogin.backgroundColor = [UIColor whiteColor];
+    self.btnAccount.backgroundColor = [UIColor colorWithHexString:@"#D0C4C1"];
+    self.btnLogin.tintColor = [UIColor colorWithHexString:@"#212121"];
+    self.btnAccount.tintColor = [UIColor colorWithHexString:@"#6D6D6C"];
     
-    
-    
-
 }
 
 - (void)didReceiveMemoryWarning {

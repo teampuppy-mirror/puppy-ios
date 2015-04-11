@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageCover;
 @property IBOutlet UIButton *btnLogin;
 @property (weak, nonatomic) IBOutlet UIImageView *imageLogo;
+@property (weak, nonatomic) IBOutlet UIButton *btnAccount;
 
 @end

@@ -1,23 +1,29 @@
 //
-//  PerfilViewController.m
+//  Login.m
 //  puppy
 //
-//  Created by Eder Martins on 4/11/15.
+//  Created by Cynthia on 11/04/15.
 //  Copyright (c) 2015 dedeh. All rights reserved.
 //
 
-#import "PerfilViewController.h"
+#import "Login.h"
 
-@interface PerfilViewController ()
+@interface Login ()
 
 @end
 
-@implementation PerfilViewController
+@implementation Login
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self customTexts];
+}
+
+-(void)customTexts{
     
-    // Do any additional setup after loading the view.
+    self.textEmail.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
+    self.textSenha.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
+
 }
 
 - (void)didReceiveMemoryWarning {

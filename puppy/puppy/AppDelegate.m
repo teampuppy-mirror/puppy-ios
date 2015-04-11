@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  puppy
 //
-//  Created by Eder Martins on 4/11/15.
-//  Copyright (c) 2015 dedeh. All rights reserved.
+//  Created by Cynthia Zanoni on 4/11/15.
+//  Copyright (c) 2015 cyz. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -16,7 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:@"#000"]];
     
     NSShadow *shadow = [[NSShadow alloc] init];

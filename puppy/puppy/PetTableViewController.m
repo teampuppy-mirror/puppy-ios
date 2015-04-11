@@ -9,7 +9,7 @@
 #import "PetTableViewController.h"
 #import "UIColor+hexString.h"
 
-#define HeaderHeight  220
+#define HeaderHeight  180
 
 @interface PetTableViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *petImageView;
@@ -22,6 +22,8 @@
     [super viewDidLoad];
     [self addHeaderTableView:@"teste"];
     [self createProfileInfo:@"teste"];
+    self.title = @"Perfil do Pet";
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 -(void)createProfileInfo:(NSString *)genero{
@@ -67,7 +69,7 @@
     self.petImageView = [[UIImageView alloc] initWithImage:image1];;
     
     
-    UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 120.f, 320.f, 90.f)];
+    UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 80, 320.f, 90.f)];
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shadow-layer.png"]];
     [myView addSubview:backgroundView];
     
