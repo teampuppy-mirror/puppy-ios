@@ -7,6 +7,7 @@
 //
 #import <QuartzCore/QuartzCore.h>
 #import "PetTableViewController.h"
+#import "UIColor+hexString.h"
 
 #define HeaderHeight  220
 
@@ -20,9 +21,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addHeaderTableView:@"teste"];
+    [self createProfileInfo:@"teste"];
 }
 
 -(void)createProfileInfo:(NSString *)genero{
+
+    self.labelGenero.frame = CGRectMake(10.0, 10.0, self.view.frame.size.width, 20);
+    self.labelReplyGenero.frame = CGRectMake(10.0, 30.0, self.view.frame.size.width, 20);
+    self.labelEspecie.frame = CGRectMake(150.0, 10.0, self.view.frame.size.width, 20);
+    self.labelReplyEspecie.frame = CGRectMake(150.0, 30.0, self.view.frame.size.width, 20);
+    
+    self.labelPorte.frame = CGRectMake(10.0, 10.0, self.view.frame.size.width, 20);
+    self.labelReplyPorte.frame = CGRectMake(10.0, 30.0, self.view.frame.size.width, 20);
+    self.labelLocalizacao.frame = CGRectMake(150.0, 10.0, self.view.frame.size.width, 20);
+    self.labelReplyLocalizacao.frame = CGRectMake(150.0, 30.0, self.view.frame.size.width, 20);
+    
+    self.labelCor.frame = CGRectMake(150.0, 10.0, self.view.frame.size.width, 20);
+    self.labelReplyCor.frame = CGRectMake(150.0, 30.0, self.view.frame.size.width, 20);
+    
+    self.labelFaixa.frame = CGRectMake(10.0, 10.0, self.view.frame.size.width, 20);
+    self.labelReplyFaixa.frame = CGRectMake(10.0, 30.0, self.view.frame.size.width, 20);
+    
+    self.btnAdotar.frame = CGRectMake(0, 0, self.view.frame.size.width, 60);
+    self.btnAdotar.backgroundColor = [UIColor colorWithHexString:@"#212121"];
+    self.btnAdotar.tintColor = [UIColor whiteColor];
+    self.btnDenunciar.frame = CGRectMake(0, 0, self.view.frame.size.width, 60);
+    self.btnAdotar.titleLabel.text = @"QUERO CONHECER";
+    self.btnDenunciar.backgroundColor = [UIColor whiteColor];
+    self.btnDenunciar.titleLabel.text = @"DENUNCIAR ANÚNCIO";
+    self.btnDenunciar.tintColor = [UIColor colorWithHexString:@"#FF4C4C"];
+    
+    
     
 }
 
