@@ -7,6 +7,7 @@
 //
 
 #import "PetsTableViewController.h"
+#import "Pet.h"
 
 @interface PetsTableViewController ()
 
@@ -15,6 +16,18 @@
 @implementation PetsTableViewController
 
 - (void)viewDidLoad {
+    _pets = [[NSMutableArray alloc]init];
+    Pet * pet = [[Pet alloc]init];
+    pet.nome = @"Juarezinho";
+    pet.cor = @"Branquinho";
+    pet.especie = @"Cachorro";
+    pet.faixaEtaria = @"Filhote";
+    pet.urlMiniatura = @"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg";
+    pet.fotos = @[@"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg",@"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg",@"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg"];
+    
+    
+    [_pets addObject:pet];
+    
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -32,26 +45,62 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return _pets.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     
-    // Configure the cell...
+    Pet * pet = _pets[indexPath.row];
+    
+    
+    
+    UIImageView * imageViewMiniatura = [[UIImageView alloc]init];
+    UIView * grayBackgroundMiniatura = [[UIView alloc]init];
+    grayBackgroundMiniatura.backgroundColor = [UIColor grayColor];
+    grayBackgroundMiniatura.frame = CGRectMake(15, 15, 100, 100);
+    [cell addSubview:grayBackgroundMiniatura];
+    imageViewMiniatura.alpha = 0.0;
+    
+    UILabel * lblNome = [[UILabel alloc]initWithFrame:CGRectMake(15, 130, self.view.frame.size.width - 145, 36)];
+    lblNome.text = pet.nome;
+    
+    
+    
+    dispatch_queue_t myCustomQueue = dispatch_queue_create("com.example.MyCustomQueue", NULL);
+    dispatch_async(myCustomQueue, ^{
+        NSData * info = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:pet.urlMiniatura]];
+            if(info){
+            
+                        dispatch_async(dispatch_get_main_queue(),
+                                       ^{
+                                           imageViewMiniatura.image =[[UIImage alloc]initWithData:info];
+                               [UIView animateWithDuration:0.3 animations:^{
+                                   imageViewMiniatura.alpha = 1.0;
+                               }];
+                               
+                           });
+            }
+    });
+    imageViewMiniatura.frame = CGRectMake(15, 15, 100, 100);
+    [cell addSubview:imageViewMiniatura];
+    [cell addSubview:lblNome];
+    
+    
     
     return cell;
 }
-*/
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 130;
+}
 
 /*
 // Override to support conditional editing of the table view.

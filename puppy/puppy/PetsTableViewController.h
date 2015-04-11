@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PetsTableViewController : UITableViewController
-
+@property NSMutableArray * pets;
 @end

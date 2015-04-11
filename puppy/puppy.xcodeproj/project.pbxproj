@@ -20,6 +20,7 @@
 		429064DA1AD978F900B06EC5 /* PetsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064D91AD978F900B06EC5 /* PetsTableViewController.m */; };
 		429064DD1AD9796700B06EC5 /* PerfilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064DC1AD9796700B06EC5 /* PerfilViewController.m */; };
 		429064E01AD97D7000B06EC5 /* EnviarMensagemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064DF1AD97D7000B06EC5 /* EnviarMensagemViewController.m */; };
+		429064E31AD993BA00B06EC5 /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064E21AD993BA00B06EC5 /* Pet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		429064DC1AD9796700B06EC5 /* PerfilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfilViewController.m; sourceTree = "<group>"; };
 		429064DE1AD97D7000B06EC5 /* EnviarMensagemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnviarMensagemViewController.h; sourceTree = "<group>"; };
 		429064DF1AD97D7000B06EC5 /* EnviarMensagemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnviarMensagemViewController.m; sourceTree = "<group>"; };
+		429064E11AD993BA00B06EC5 /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
+		429064E21AD993BA00B06EC5 /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 				425C5BD31AD95989006DB9B2 /* AppDelegate.h */,
 				425C5BD41AD95989006DB9B2 /* AppDelegate.m */,
 				425C5BDC1AD95989006DB9B2 /* Main.storyboard */,
+				429064E11AD993BA00B06EC5 /* Pet.h */,
+				429064E21AD993BA00B06EC5 /* Pet.m */,
 				429064DE1AD97D7000B06EC5 /* EnviarMensagemViewController.h */,
 				429064DF1AD97D7000B06EC5 /* EnviarMensagemViewController.m */,
 				429064DB1AD9796700B06EC5 /* PerfilViewController.h */,
@@ -249,6 +254,7 @@
 				429064DD1AD9796700B06EC5 /* PerfilViewController.m in Sources */,
 				429064D41AD978B300B06EC5 /* LoginViewController.m in Sources */,
 				429064E01AD97D7000B06EC5 /* EnviarMensagemViewController.m in Sources */,
+				429064E31AD993BA00B06EC5 /* Pet.m in Sources */,
 				425C5BD81AD95989006DB9B2 /* puppy.xcdatamodeld in Sources */,
 				425C5BD51AD95989006DB9B2 /* AppDelegate.m in Sources */,
 				429064DA1AD978F900B06EC5 /* PetsTableViewController.m in Sources */,

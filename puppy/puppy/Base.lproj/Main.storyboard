@@ -131,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="idK-co-9Q4"/>
+                        <segue destination="eBB-2N-UcV" kind="relationship" relationship="rootViewController" id="xcH-YG-3ea"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FyT-Z7-hgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,6 +159,7 @@
                             <outlet property="delegate" destination="eBB-2N-UcV" id="QVA-VQ-Lb5"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="9NE-yJ-ltr"/>
                     <connections>
                         <segue destination="OPG-vV-veX" kind="show" identifier="goToPet" id="C7N-uc-PGu"/>
                         <segue destination="LN4-N3-vlU" kind="show" identifier="goToUserPerfil" id="kkM-V1-fZy"/>
@@ -575,4 +576,7 @@
     <resources>
         <image name="dog-5.jpg" width="1024" height="768"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xcH-YG-3ea"/>
+    </inferredMetricsTieBreakers>
 </document>
