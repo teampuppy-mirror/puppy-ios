@@ -15,6 +15,11 @@
 		425C5BE31AD95989006DB9B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425C5BE11AD95989006DB9B2 /* LaunchScreen.xib */; };
 		425C5BEF1AD95989006DB9B2 /* puppyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 425C5BEE1AD95989006DB9B2 /* puppyTests.m */; };
 		429064CF1AD9635000B06EC5 /* dog-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 429064CE1AD9635000B06EC5 /* dog-5.jpg */; };
+		429064D41AD978B300B06EC5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064D31AD978B300B06EC5 /* LoginViewController.m */; };
+		429064D71AD978D400B06EC5 /* PetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064D61AD978D400B06EC5 /* PetViewController.m */; };
+		429064DA1AD978F900B06EC5 /* PetsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064D91AD978F900B06EC5 /* PetsTableViewController.m */; };
+		429064DD1AD9796700B06EC5 /* PerfilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064DC1AD9796700B06EC5 /* PerfilViewController.m */; };
+		429064E01AD97D7000B06EC5 /* EnviarMensagemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064DF1AD97D7000B06EC5 /* EnviarMensagemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +46,16 @@
 		425C5BED1AD95989006DB9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425C5BEE1AD95989006DB9B2 /* puppyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = puppyTests.m; sourceTree = "<group>"; };
 		429064CE1AD9635000B06EC5 /* dog-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dog-5.jpg"; sourceTree = "<group>"; };
+		429064D21AD978B300B06EC5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		429064D31AD978B300B06EC5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		429064D51AD978D400B06EC5 /* PetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetViewController.h; sourceTree = "<group>"; };
+		429064D61AD978D400B06EC5 /* PetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetViewController.m; sourceTree = "<group>"; };
+		429064D81AD978F900B06EC5 /* PetsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetsTableViewController.h; sourceTree = "<group>"; };
+		429064D91AD978F900B06EC5 /* PetsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetsTableViewController.m; sourceTree = "<group>"; };
+		429064DB1AD9796700B06EC5 /* PerfilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfilViewController.h; sourceTree = "<group>"; };
+		429064DC1AD9796700B06EC5 /* PerfilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfilViewController.m; sourceTree = "<group>"; };
+		429064DE1AD97D7000B06EC5 /* EnviarMensagemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnviarMensagemViewController.h; sourceTree = "<group>"; };
+		429064DF1AD97D7000B06EC5 /* EnviarMensagemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnviarMensagemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +100,16 @@
 				425C5BD31AD95989006DB9B2 /* AppDelegate.h */,
 				425C5BD41AD95989006DB9B2 /* AppDelegate.m */,
 				425C5BDC1AD95989006DB9B2 /* Main.storyboard */,
+				429064DE1AD97D7000B06EC5 /* EnviarMensagemViewController.h */,
+				429064DF1AD97D7000B06EC5 /* EnviarMensagemViewController.m */,
+				429064DB1AD9796700B06EC5 /* PerfilViewController.h */,
+				429064DC1AD9796700B06EC5 /* PerfilViewController.m */,
+				429064D51AD978D400B06EC5 /* PetViewController.h */,
+				429064D61AD978D400B06EC5 /* PetViewController.m */,
+				429064D81AD978F900B06EC5 /* PetsTableViewController.h */,
+				429064D91AD978F900B06EC5 /* PetsTableViewController.m */,
+				429064D21AD978B300B06EC5 /* LoginViewController.h */,
+				429064D31AD978B300B06EC5 /* LoginViewController.m */,
 				429064CE1AD9635000B06EC5 /* dog-5.jpg */,
 				425C5BDF1AD95989006DB9B2 /* Images.xcassets */,
 				425C5BE11AD95989006DB9B2 /* LaunchScreen.xib */,
@@ -221,8 +246,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429064DD1AD9796700B06EC5 /* PerfilViewController.m in Sources */,
+				429064D41AD978B300B06EC5 /* LoginViewController.m in Sources */,
+				429064E01AD97D7000B06EC5 /* EnviarMensagemViewController.m in Sources */,
 				425C5BD81AD95989006DB9B2 /* puppy.xcdatamodeld in Sources */,
 				425C5BD51AD95989006DB9B2 /* AppDelegate.m in Sources */,
+				429064DA1AD978F900B06EC5 /* PetsTableViewController.m in Sources */,
+				429064D71AD978D400B06EC5 /* PetViewController.m in Sources */,
 				425C5BD21AD95989006DB9B2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +375,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				INFOPLIST_FILE = puppy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				INFOPLIST_FILE = puppy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
