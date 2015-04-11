@@ -15,6 +15,7 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Czh-ld-kYl">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -182,16 +183,23 @@
                                 <include reference="GW9-Sa-juY"/>
                             </mask>
                         </variation>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+
                         <outlet property="btnCriar" destination="GW9-Sa-juY" id="6Kx-Ya-4qj"/>
                         <outlet property="textEmail" destination="EYM-IU-aBo" id="2bI-KI-Rjh"/>
                         <outlet property="textSenha" destination="293-Os-AED" id="2rI-GY-cHE"/>
+
+                        <segue destination="eBB-2N-UcV" kind="show" identifier="bypass" id="fs3-gt-hlG"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVd-M6-MiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+
             <point key="canvasLocation" x="-682.5" y="931.5"/>
+
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A2j-y1-n3T">
@@ -817,4 +825,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="TQd-zZ-Uvn"/>
     </inferredMetricsTieBreakers>
+
 </document>
