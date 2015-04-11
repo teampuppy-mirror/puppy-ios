@@ -23,6 +23,7 @@
 		429064E31AD993BA00B06EC5 /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064E21AD993BA00B06EC5 /* Pet.m */; };
 		429064E51AD9A2D700B06EC5 /* orange-pin.svg in Resources */ = {isa = PBXBuildFile; fileRef = 429064E41AD9A2D700B06EC5 /* orange-pin.svg */; };
 		429064E71AD9A2FE00B06EC5 /* map-pin-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = 429064E61AD9A2FE00B06EC5 /* map-pin-hi.png */; };
+		DCB9CC981AD9B07A003BC302 /* shadow-layer.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB9CC971AD9B07A003BC302 /* shadow-layer.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		429064E21AD993BA00B06EC5 /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
 		429064E41AD9A2D700B06EC5 /* orange-pin.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "orange-pin.svg"; sourceTree = "<group>"; };
 		429064E61AD9A2FE00B06EC5 /* map-pin-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin-hi.png"; sourceTree = "<group>"; };
+		DCB9CC971AD9B07A003BC302 /* shadow-layer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow-layer.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				429064D51AD978D400B06EC5 /* PetTableViewController.h */,
 				429064D61AD978D400B06EC5 /* PetTableViewController.m */,
 				429064E61AD9A2FE00B06EC5 /* map-pin-hi.png */,
+				DCB9CC971AD9B07A003BC302 /* shadow-layer.png */,
 				429064E41AD9A2D700B06EC5 /* orange-pin.svg */,
 				429064D81AD978F900B06EC5 /* PetsTableViewController.h */,
 				429064D91AD978F900B06EC5 /* PetsTableViewController.m */,
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				429064CF1AD9635000B06EC5 /* dog-5.jpg in Resources */,
+				DCB9CC981AD9B07A003BC302 /* shadow-layer.png in Resources */,
 				425C5BDE1AD95989006DB9B2 /* Main.storyboard in Resources */,
 				425C5BE31AD95989006DB9B2 /* LaunchScreen.xib in Resources */,
 				429064E71AD9A2FE00B06EC5 /* map-pin-hi.png in Resources */,
