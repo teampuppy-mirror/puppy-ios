@@ -15,6 +15,10 @@
 
 @implementation PetsTableViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationItem.hidesBackButton = YES;
+}
+
 - (void)viewDidLoad {
     _pets = [[NSMutableArray alloc]init];
     self.title = @"Pets";
