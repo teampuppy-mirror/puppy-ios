@@ -24,6 +24,7 @@
     [self createProfileInfo:@"teste"];
     self.title = @"Perfil do Pet";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.contentInset = UIEdgeInsetsMake(HeaderHeight, 0, 0, 0);
 }
 
 -(void)createProfileInfo:(NSString *)genero{
@@ -60,13 +61,15 @@
 -(void)addHeaderTableView:(NSString *)image{
     
     
+    UIImage *image1 = [UIImage imageNamed:@"dog-5.jpg"];
+    self.petImageView.image = image1;
     self.petImageView.frame = CGRectMake(0,0, self.view.frame.size.width, HeaderHeight);
     self.petImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.petImageView.clipsToBounds = YES;
-    UIImage *image1 = [UIImage imageNamed:@"dog-5.jpg"];
+    [self.view sendSubviewToBack:_petImageView];
+    //self.petImageView.clipsToBounds = YES;
+    
 
 
-    self.petImageView = [[UIImageView alloc] initWithImage:image1];;
     
     
     UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 80, 320.f, 90.f)];
@@ -103,22 +106,19 @@
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat yPos = -scrollView.contentOffset.y;
-    if (yPos > 0) {
-        
         CGRect imgRect = self.petImageView.frame;
         imgRect.origin.y = scrollView.contentOffset.y;
         imgRect.size.height = HeaderHeight+yPos;
         self.petImageView.frame = imgRect;
-    }
-    if (scrollView == self.tableView) {
-        if (scrollView.contentOffset.y > 0) {
-            scrollView.contentOffset = CGPointZero;
-        }
-    }
+//    if (scrollView == self.tableView) {
+//        if (scrollView.contentOffset.y > 0) {
+//            scrollView.contentOffset = CGPointZero;
+//        }
+//    }
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    self.petImageView.frame = CGRectMake(0,-HeaderHeight, self.view.frame.size.width, HeaderHeight);
     [super viewWillAppear:animated];
     
 }

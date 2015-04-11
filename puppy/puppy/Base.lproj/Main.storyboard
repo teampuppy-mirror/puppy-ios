@@ -705,15 +705,6 @@
                                     <rect key="frame" x="179" y="717" width="43" height="30"/>
                                 </variation>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enviar mensagem:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PC0-dM-hay">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="83" width="142" height="21"/>
-                                </variation>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destinatário:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-Hg-MoA">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -772,12 +763,11 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.49620027168537834" green="0.62539457070707072" blue="0.51555638909659152" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="tSO-l2-wsw"/>
                                 <exclude reference="Cuo-uR-UXp"/>
-                                <exclude reference="PC0-dM-hay"/>
                                 <exclude reference="ag9-Hg-MoA"/>
                                 <exclude reference="3pc-4D-4XB"/>
                             </mask>
@@ -786,7 +776,6 @@
                             <mask key="subviews">
                                 <include reference="tSO-l2-wsw"/>
                                 <include reference="Cuo-uR-UXp"/>
-                                <include reference="PC0-dM-hay"/>
                                 <include reference="ag9-Hg-MoA"/>
                                 <include reference="3pc-4D-4XB"/>
                             </mask>
