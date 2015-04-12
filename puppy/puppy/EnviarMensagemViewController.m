@@ -15,10 +15,13 @@
 
 @implementation EnviarMensagemViewController
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
 - (void)viewDidLoad {
     self.user = [[User alloc]init];
-    self.user.nome = @"Usuario Padrao";
-    self.user.email = @"email@usuario.com";
+    self.user.nome = [[NSUserDefaults standardUserDefaults] valueForKey:@"nome"];
+    self.user.email = [[NSUserDefaults standardUserDefaults] valueForKey:@"email"];
     
     [super viewDidLoad];
     self.title = @"Enviar Mensagem";

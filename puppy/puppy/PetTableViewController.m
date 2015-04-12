@@ -83,7 +83,6 @@
     
     self.labelNomeDog.frame = CGRectMake(10.0, 22.0, self.view.frame.size.width - 140, 20);
     self.labelNomeDog.numberOfLines = 1;
-    self.labelNomeDog.text = @"Juarezinho";
     self.labelNomeDog.adjustsFontSizeToFitWidth = YES;
     
     [self.btnLike setTitle:@"" forState:UIControlStateNormal];
@@ -184,17 +183,7 @@
     
 }
 
-/*
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell * cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
-    UILabel * lblTest = [[UILabel alloc]init];
-    
-    lblTest.frame = CGRectMake(0, 0, 100, 50);
-    lblTest.text = @"testando";
-    
-    return cell;
-}
-*/
+
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat yPos = -scrollView.contentOffset.y;
@@ -212,16 +201,25 @@
 {
     //[self.navigationController setNavigationBarHidden:YES animated:YES];
     UIButton * back = [[UIButton alloc]init];
-    back.backgroundColor = [UIColor blueColor];
-    back.frame = CGRectMake(15, -HeaderHeight+5, 15, 20);
+    
+    UIImage *btnImage = [UIImage imageNamed:@"left-arrow-gray-th.png"];
+    [back setImage:btnImage forState:UIControlStateNormal];
+    
+    //back.backgroundColor = [UIColor blueColor]; //
+    back.frame = CGRectMake(10, -HeaderHeight+10, 15, 20);
     [self.view addSubview:back];
-
-    self.petImageView.frame = CGRectMake(0,-HeaderHeight-20, self.view.frame.size.width, 200);
+    [back addTarget:self action:@selector(goBackView) forControlEvents:UIControlEventTouchUpInside];
+    self.petImageView.frame = CGRectMake(0,-HeaderHeight-20, self.view.frame.size.width, 220);
     [super viewWillAppear:animated];
     
 }
 
+-(void)goBackView{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 @end

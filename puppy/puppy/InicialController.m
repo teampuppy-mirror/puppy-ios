@@ -173,7 +173,9 @@
                       [[NSUserDefaults standardUserDefaults] setObject:self.textFieldEmail.text forKey:@"email"];
 #pragma warning Nao esta seguro, sera modificado para keychain futuramente.
                       [[NSUserDefaults standardUserDefaults] setObject:self.txtFieldSenha.text forKey:@"senha"];
+                      [[NSUserDefaults standardUserDefaults] setObject:self.txtFieldNome.text forKey:@"nome"];
                       [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"logado"];
+                      [[NSUserDefaults standardUserDefaults] synchronize];
                       
                       
                       [self performSegueWithIdentifier:@"bypass" sender:nil];
@@ -201,7 +203,9 @@
                  [[NSUserDefaults standardUserDefaults] setObject:self.textFieldEmail.text forKey:@"email"];
 #pragma warning Nao esta seguro, sera modificado para keychain futuramente.
                  [[NSUserDefaults standardUserDefaults] setObject:self.txtFieldSenha.text forKey:@"senha"];
+                 [[NSUserDefaults standardUserDefaults] setObject:self.txtFieldNome.text forKey:@"nome"];
                  [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"logado"];
+                 [[NSUserDefaults standardUserDefaults] synchronize];
                  
                  [self performSegueWithIdentifier:@"bypass" sender:nil];
                  

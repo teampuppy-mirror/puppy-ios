@@ -37,12 +37,16 @@
         pet.porte = [currentPet valueForKey:@"porte"];
         pet.especie = [currentPet valueForKey:@"especie"];
         pet.faixaEtaria = [currentPet valueForKey:@"idade"];
-        //pet.localizacao = [currentPet valueForKey:@"localizacao"];
-        int sexo = ((NSNumber *)[currentPet valueForKey:@"sexo"]).intValue;
+        pet.localizacao = [currentPet valueForKey:@"localizacao"];
+        NSInteger sexo = ((NSNumber *)[currentPet valueForKey:@"sexo"]).integerValue;
+        
+        NSLog(@"Sexo: %ld",(long)sexo);
         if(sexo == 1){//femea
             pet.genero = @"Femêa";
         }else{
             if(sexo == 2){
+                pet.genero = @"Macho";
+            }else{
                 pet.genero = @"Macho";
             }
         }
@@ -51,7 +55,6 @@
     self.title = @"Pets";
     
     
-    [self addFilterButton];
     [super viewDidLoad];
 
 }
