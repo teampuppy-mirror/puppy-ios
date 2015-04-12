@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Pet.h"
 
 @interface EnviarMensagemViewController : UIViewController
-
+@property Pet * selectedPet;
 @end

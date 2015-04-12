@@ -8,6 +8,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "PetTableViewController.h"
 #import "UIColor+hexString.h"
+#import "EnviarMensagemViewController.h"
 
 #define HeaderHeight  100
 
@@ -48,8 +49,7 @@
     
     self.labelFaixa.frame = CGRectMake(10.0, 10.0, self.view.frame.size.width, 20);
     self.labelReplyFaixa.frame = CGRectMake(10.0, 30.0, self.view.frame.size.width, 20);
-    self.labelNomeDog.frame = CGRectMake(10.0, 30.0, self.view.frame.size.width, 20);
-    self.labelNomeDog.numberOfLines = 2;
+ 
     self.btnAdotar.frame = CGRectMake(0, 0, self.view.frame.size.width, 60);
     self.btnAdotar.backgroundColor = [UIColor colorWithHexString:@"#212121"];
     self.btnAdotar.tintColor = [UIColor whiteColor];
@@ -57,19 +57,34 @@
     self.btnAdotar.titleLabel.text = @"QUERO CONHECER";
     
     UIImageView * imgViewHearth = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"hearth"]];
-    imgViewHearth.frame = CGRectMake(0, 0, 20, 20);
-    imgViewHearth.center = CGPointMake(50, self.btnAdotar.center.y);
+    imgViewHearth.frame = CGRectMake(0, 0, 30, 30);
+    imgViewHearth.center = CGPointMake(45, self.btnAdotar.center.y);
     [self.btnAdotar addSubview:imgViewHearth];
     
+    [self.btnAdotar addTarget:self action:@selector(queroconhecer) forControlEvents:UIControlEventTouchUpInside];
     
+    
+    self.labelNomeDog.text = _selectedPet.nome;
+    self.labelReplyEspecie.text = _selectedPet.especie;
+    self.labelReplyPorte.text = _selectedPet.porte;
+    self.labelReplyCor.text = _selectedPet.cor;
+    self.labelReplyGenero.text = _selectedPet.genero;
+    self.labelReplyFaixa.text = _selectedPet.faixaEtaria;
+    self.labelReplyLocalizacao.text = _selectedPet.localizacao;
     
     
     self.btnDenunciar.backgroundColor = [UIColor whiteColor];
     self.btnDenunciar.titleLabel.text = @"DENUNCIAR ANÚNCIO";
     self.btnDenunciar.tintColor = [UIColor colorWithHexString:@"#FF4C4C"];
     
+    
+    self.labelNomeDog.frame = CGRectMake(10.0, 22.0, self.view.frame.size.width - 140, 20);
+    self.labelNomeDog.numberOfLines = 1;
+    self.labelNomeDog.text = @"Juarezinho";
+    self.labelNomeDog.adjustsFontSizeToFitWidth = YES;
+    
     [self.btnLike setTitle:@"" forState:UIControlStateNormal];
-    self.btnLike.frame = CGRectMake(200, 10, 60, 56);
+    self.btnLike.frame = CGRectMake(200, 10, 50, 45);
     [self.btnLike addTarget:self action:@selector(likePressed) forControlEvents:UIControlEventTouchUpInside];
     if(_selectedPet.like){
         [self.btnLike setBackgroundImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
@@ -87,12 +102,21 @@
     float curtidasPosX = 260.0;
     
     self.labelNumCurtidas.frame = CGRectMake(curtidasPosX, 10, self.view.frame.size.width-curtidasPosX, 30);
-    self.labelCurtidas.frame = CGRectMake(curtidasPosX, 40, self.view.frame.size.width-curtidasPosX, 30);
+    self.labelCurtidas.frame = CGRectMake(curtidasPosX, 30, self.view.frame.size.width-curtidasPosX, 30);
     
     self.labelNumCurtidas.textAlignment = NSTextAlignmentCenter;
     self.labelCurtidas.textAlignment = NSTextAlignmentCenter;
     
     
+}
+
+-(void)queroconhecer{
+    [self performSegueWithIdentifier:@"goToMsg" sender:nil];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    EnviarMensagemViewController * destination = segue.destinationViewController;
+    destination.selectedPet = self.selectedPet;
 }
 
 -(void)adjustLabelCurtidasNumber{
