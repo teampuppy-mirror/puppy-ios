@@ -737,7 +737,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </objects>
-            <point key="canvasLocation" x="1365" y="-125.25"/>
+            <point key="canvasLocation" x="1269" y="-125.25"/>
         </scene>
         <!--Enviar Mensagem View Controller-->
         <scene sceneID="Uez-qo-ptj">

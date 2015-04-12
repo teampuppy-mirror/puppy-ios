@@ -25,10 +25,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelReplyLocalizacao;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdotar;
 @property (weak, nonatomic) IBOutlet UIButton *btnDenunciar;
+@property (weak, nonatomic) IBOutlet UILabel *labelNumCurtidas;
+@property (weak, nonatomic) IBOutlet UILabel *labelCurtidas;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *labelNomeDog;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *btnLike;
 
 
 

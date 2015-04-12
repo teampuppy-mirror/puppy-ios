@@ -22,6 +22,14 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+}
+
 -(void)createCover{
 
     UIImage *cover = [UIImage imageNamed:@"bg.png"];

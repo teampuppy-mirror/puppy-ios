@@ -9,7 +9,7 @@
 #import "PetTableViewController.h"
 #import "UIColor+hexString.h"
 
-#define HeaderHeight  180
+#define HeaderHeight  100
 
 @interface PetTableViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *petImageView;
@@ -25,6 +25,10 @@
     self.title = @"Perfil do Pet";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(HeaderHeight, 0, 0, 0);
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 
 -(void)createProfileInfo:(NSString *)genero{
@@ -44,18 +48,67 @@
     
     self.labelFaixa.frame = CGRectMake(10.0, 10.0, self.view.frame.size.width, 20);
     self.labelReplyFaixa.frame = CGRectMake(10.0, 30.0, self.view.frame.size.width, 20);
-    
+    self.labelNomeDog.frame = CGRectMake(10.0, 30.0, self.view.frame.size.width, 20);
+    self.labelNomeDog.numberOfLines = 2;
     self.btnAdotar.frame = CGRectMake(0, 0, self.view.frame.size.width, 60);
     self.btnAdotar.backgroundColor = [UIColor colorWithHexString:@"#212121"];
     self.btnAdotar.tintColor = [UIColor whiteColor];
     self.btnDenunciar.frame = CGRectMake(0, 0, self.view.frame.size.width, 60);
     self.btnAdotar.titleLabel.text = @"QUERO CONHECER";
+    
+    UIImageView * imgViewHearth = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"hearth"]];
+    imgViewHearth.frame = CGRectMake(0, 0, 20, 20);
+    imgViewHearth.center = CGPointMake(50, self.btnAdotar.center.y);
+    [self.btnAdotar addSubview:imgViewHearth];
+    
+    
+    
+    
     self.btnDenunciar.backgroundColor = [UIColor whiteColor];
     self.btnDenunciar.titleLabel.text = @"DENUNCIAR ANÚNCIO";
     self.btnDenunciar.tintColor = [UIColor colorWithHexString:@"#FF4C4C"];
     
+    [self.btnLike setTitle:@"" forState:UIControlStateNormal];
+    self.btnLike.frame = CGRectMake(200, 10, 60, 56);
+    [self.btnLike addTarget:self action:@selector(likePressed) forControlEvents:UIControlEventTouchUpInside];
+    if(_selectedPet.like){
+        [self.btnLike setBackgroundImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+    }else{
+        [self.btnLike setBackgroundImage:[UIImage imageNamed:@"no-like"] forState:UIControlStateNormal];
+    }
+    
+    [self adjustLabelCurtidasNumber];
+    
+    if(_selectedPet.numCurtidas > 1 || _selectedPet.numCurtidas == 0)
+        self.labelCurtidas.text = @"curtidas";
+    else
+        self.labelCurtidas.text = @"curtida";
+    
+    float curtidasPosX = 260.0;
+    
+    self.labelNumCurtidas.frame = CGRectMake(curtidasPosX, 10, self.view.frame.size.width-curtidasPosX, 30);
+    self.labelCurtidas.frame = CGRectMake(curtidasPosX, 40, self.view.frame.size.width-curtidasPosX, 30);
+    
+    self.labelNumCurtidas.textAlignment = NSTextAlignmentCenter;
+    self.labelCurtidas.textAlignment = NSTextAlignmentCenter;
     
     
+}
+
+-(void)adjustLabelCurtidasNumber{
+        self.labelNumCurtidas.text = [NSString stringWithFormat:@"%ld",(long)_selectedPet.numCurtidas];
+}
+
+-(void)likePressed{
+    _selectedPet.like = !_selectedPet.like;
+    if(_selectedPet.like){
+        _selectedPet.numCurtidas++;
+        [self.btnLike setBackgroundImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+    }else{
+        _selectedPet.numCurtidas--;
+        [self.btnLike setBackgroundImage:[UIImage imageNamed:@"no-like"] forState:UIControlStateNormal];
+    }
+    [self adjustLabelCurtidasNumber];
 }
 
 -(void)addHeaderTableView:(NSString *)image{
@@ -66,13 +119,12 @@
     self.petImageView.frame = CGRectMake(0,0, self.view.frame.size.width, HeaderHeight);
     self.petImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view sendSubviewToBack:_petImageView];
-    //self.petImageView.clipsToBounds = YES;
     
 
 
     
     
-    UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 80, 320.f, 90.f)];
+    UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0, 320.f, 90.f)];
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shadow-layer.png"]];
     [myView addSubview:backgroundView];
     

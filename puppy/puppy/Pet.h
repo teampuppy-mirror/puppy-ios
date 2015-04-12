@@ -16,6 +16,7 @@
 @property NSString * porte;
 @property NSString * localizacao;
 @property NSString * faixaEtaria;
+@property NSInteger numCurtidas;
 @property BOOL like;
 
 @property NSString * urlMiniatura;

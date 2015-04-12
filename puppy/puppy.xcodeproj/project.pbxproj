@@ -12,7 +12,6 @@
 		425C5BD81AD95989006DB9B2 /* puppy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 425C5BD61AD95989006DB9B2 /* puppy.xcdatamodeld */; };
 		425C5BDE1AD95989006DB9B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425C5BDC1AD95989006DB9B2 /* Main.storyboard */; };
 		425C5BE01AD95989006DB9B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425C5BDF1AD95989006DB9B2 /* Images.xcassets */; };
-		425C5BE31AD95989006DB9B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425C5BE11AD95989006DB9B2 /* LaunchScreen.xib */; };
 		425C5BEF1AD95989006DB9B2 /* puppyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 425C5BEE1AD95989006DB9B2 /* puppyTests.m */; };
 		429064CF1AD9635000B06EC5 /* dog-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 429064CE1AD9635000B06EC5 /* dog-5.jpg */; };
 		429064D41AD978B300B06EC5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064D31AD978B300B06EC5 /* LoginViewController.m */; };
@@ -21,13 +20,9 @@
 		429064DD1AD9796700B06EC5 /* PerfilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064DC1AD9796700B06EC5 /* PerfilViewController.m */; };
 		429064E01AD97D7000B06EC5 /* EnviarMensagemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064DF1AD97D7000B06EC5 /* EnviarMensagemViewController.m */; };
 		429064E31AD993BA00B06EC5 /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064E21AD993BA00B06EC5 /* Pet.m */; };
-		429064E51AD9A2D700B06EC5 /* orange-pin.svg in Resources */ = {isa = PBXBuildFile; fileRef = 429064E41AD9A2D700B06EC5 /* orange-pin.svg */; };
-		429064E71AD9A2FE00B06EC5 /* map-pin-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = 429064E61AD9A2FE00B06EC5 /* map-pin-hi.png */; };
-		DCB9CC981AD9B07A003BC302 /* shadow-layer.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB9CC971AD9B07A003BC302 /* shadow-layer.png */; };
 		DCB9CCD01AD9C172003BC302 /* UIColor+hexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB9CCCF1AD9C172003BC302 /* UIColor+hexString.m */; };
 		DCB9CCD51AD9C2BA003BC302 /* CMRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB9CCD21AD9C2BA003BC302 /* CMRequest.m */; };
 		DCB9CCD61AD9C2BA003BC302 /* CMRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB9CCD41AD9C2BA003BC302 /* CMRequestModel.m */; };
-		DCB9CCD81AD9C2E1003BC302 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB9CCD71AD9C2E1003BC302 /* bg.png */; };
 		DCB9CCDB1AD9C374003BC302 /* InicialController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB9CCDA1AD9C374003BC302 /* InicialController.m */; };
 		DCB9CCDE1AD9D4C1003BC302 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB9CCDD1AD9D4C1003BC302 /* Login.m */; };
 /* End PBXBuildFile section */
@@ -51,7 +46,6 @@
 		425C5BD71AD95989006DB9B2 /* puppy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = puppy.xcdatamodel; sourceTree = "<group>"; };
 		425C5BDD1AD95989006DB9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		425C5BDF1AD95989006DB9B2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		425C5BE21AD95989006DB9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		425C5BE81AD95989006DB9B2 /* puppyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = puppyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		425C5BED1AD95989006DB9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425C5BEE1AD95989006DB9B2 /* puppyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = puppyTests.m; sourceTree = "<group>"; };
@@ -68,16 +62,12 @@
 		429064DF1AD97D7000B06EC5 /* EnviarMensagemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnviarMensagemViewController.m; sourceTree = "<group>"; };
 		429064E11AD993BA00B06EC5 /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
 		429064E21AD993BA00B06EC5 /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
-		429064E41AD9A2D700B06EC5 /* orange-pin.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "orange-pin.svg"; sourceTree = "<group>"; };
-		429064E61AD9A2FE00B06EC5 /* map-pin-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin-hi.png"; sourceTree = "<group>"; };
-		DCB9CC971AD9B07A003BC302 /* shadow-layer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow-layer.png"; sourceTree = "<group>"; };
 		DCB9CCCE1AD9C172003BC302 /* UIColor+hexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hexString.h"; sourceTree = "<group>"; };
 		DCB9CCCF1AD9C172003BC302 /* UIColor+hexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hexString.m"; sourceTree = "<group>"; };
 		DCB9CCD11AD9C2BA003BC302 /* CMRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRequest.h; sourceTree = "<group>"; };
 		DCB9CCD21AD9C2BA003BC302 /* CMRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRequest.m; sourceTree = "<group>"; };
 		DCB9CCD31AD9C2BA003BC302 /* CMRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRequestModel.h; sourceTree = "<group>"; };
 		DCB9CCD41AD9C2BA003BC302 /* CMRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRequestModel.m; sourceTree = "<group>"; };
-		DCB9CCD71AD9C2E1003BC302 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		DCB9CCD91AD9C374003BC302 /* InicialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InicialController.h; sourceTree = "<group>"; };
 		DCB9CCDA1AD9C374003BC302 /* InicialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InicialController.m; sourceTree = "<group>"; };
 		DCB9CCDC1AD9D4C1003BC302 /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
@@ -136,25 +126,20 @@
 				429064DF1AD97D7000B06EC5 /* EnviarMensagemViewController.m */,
 				429064DB1AD9796700B06EC5 /* PerfilViewController.h */,
 				429064DC1AD9796700B06EC5 /* PerfilViewController.m */,
-				429064D51AD978D400B06EC5 /* PetTableViewController.h */,
 				DCB9CCD11AD9C2BA003BC302 /* CMRequest.h */,
 				DCB9CCD21AD9C2BA003BC302 /* CMRequest.m */,
 				DCB9CCD31AD9C2BA003BC302 /* CMRequestModel.h */,
 				DCB9CCD41AD9C2BA003BC302 /* CMRequestModel.m */,
-				DCB9CCD71AD9C2E1003BC302 /* bg.png */,
+				429064D51AD978D400B06EC5 /* PetTableViewController.h */,
 				429064D61AD978D400B06EC5 /* PetTableViewController.m */,
-				429064E61AD9A2FE00B06EC5 /* map-pin-hi.png */,
-				DCB9CC971AD9B07A003BC302 /* shadow-layer.png */,
-				429064E41AD9A2D700B06EC5 /* orange-pin.svg */,
 				429064D81AD978F900B06EC5 /* PetsTableViewController.h */,
+				429064D91AD978F900B06EC5 /* PetsTableViewController.m */,
 				DCB9CCCE1AD9C172003BC302 /* UIColor+hexString.h */,
 				DCB9CCCF1AD9C172003BC302 /* UIColor+hexString.m */,
-				429064D91AD978F900B06EC5 /* PetsTableViewController.m */,
 				429064D21AD978B300B06EC5 /* LoginViewController.h */,
 				429064D31AD978B300B06EC5 /* LoginViewController.m */,
 				429064CE1AD9635000B06EC5 /* dog-5.jpg */,
 				425C5BDF1AD95989006DB9B2 /* Images.xcassets */,
-				425C5BE11AD95989006DB9B2 /* LaunchScreen.xib */,
 				425C5BD61AD95989006DB9B2 /* puppy.xcdatamodeld */,
 				425C5BCF1AD95989006DB9B2 /* Supporting Files */,
 			);
@@ -268,13 +253,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				429064CF1AD9635000B06EC5 /* dog-5.jpg in Resources */,
-				DCB9CC981AD9B07A003BC302 /* shadow-layer.png in Resources */,
-				DCB9CCD81AD9C2E1003BC302 /* bg.png in Resources */,
 				425C5BDE1AD95989006DB9B2 /* Main.storyboard in Resources */,
-				425C5BE31AD95989006DB9B2 /* LaunchScreen.xib in Resources */,
-				429064E71AD9A2FE00B06EC5 /* map-pin-hi.png in Resources */,
 				425C5BE01AD95989006DB9B2 /* Images.xcassets in Resources */,
-				429064E51AD9A2D700B06EC5 /* orange-pin.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,14 +314,6 @@
 				425C5BDD1AD95989006DB9B2 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		425C5BE11AD95989006DB9B2 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				425C5BE21AD95989006DB9B2 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
