@@ -29,10 +29,9 @@
     
     for(int i=0;i<pets.count-1;i++){
         NSDictionary * currentPet = pets[i];
-        NSLog(@"%@",currentPet);
         Pet * pet = [[Pet alloc]init];
 
-        pet.urlMiniatura = [currentPet valueForKey:@"miniatura"];
+        //pet.urlMiniatura = [currentPet valueForKey:@"miniatura"];
         pet.urlFoto = [currentPet valueForKey:@"foto"];
         pet.especie = [currentPet valueForKey:@"especie"];
         pet.porte = [currentPet valueForKey:@"porte"];
@@ -77,7 +76,6 @@
                            });
     });
     
-    self.view.backgroundColor = [UIColor lightGrayColor];
     
     self.title = @"Pets";
     

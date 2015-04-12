@@ -13,11 +13,18 @@
 
 @end
 
-@implementation EnviarMensagemViewController
+@implementation EnviarMensagemViewController{
+    UITextView * textView;
+}
 
 -(void)viewWillDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [textView resignFirstResponder];
+}
+
 - (void)viewDidLoad {
     self.user = [[User alloc]init];
     self.user.nome = [[NSUserDefaults standardUserDefaults] valueForKey:@"nome"];
@@ -34,7 +41,7 @@
     lblMsg.textAlignment = NSTextAlignmentCenter;
 
 
-    UITextView * textView = [[UITextView alloc]init];
+    textView = [[UITextView alloc]init];
     textView.frame = CGRectMake(10, 120, self.view.frame.size.width - 20, self.view.frame.size.height - 200);
 
     

@@ -19,6 +19,7 @@
 
 @implementation PetTableViewController{
     UIImageView * grayBack;
+    UIButton *  back;
 }
 
 - (void)viewDidLoad {
@@ -193,9 +194,12 @@
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat yPos = -scrollView.contentOffset.y;
-        CGRect imgRect = self.petImageView.frame;
-        imgRect.origin.y = scrollView.contentOffset.y;
+    CGRect imgRect = self.petImageView.frame;
+    CGRect buttonRect = back.frame;
+    imgRect.origin.y = scrollView.contentOffset.y;
     imgRect.size.height = HeaderHeight+yPos;
+    buttonRect.origin.y = scrollView.contentOffset.y+33;
+    back.frame = buttonRect;
     self.petImageView.frame = imgRect;
     grayBack.frame = imgRect;
 //    if (scrollView == self.tableView) {
@@ -207,9 +211,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     //[self.navigationController setNavigationBarHidden:YES animated:YES];
-    UIButton * back = [[UIButton alloc]init];
+    back = [[UIButton alloc]init];
     
-    UIImage *btnImage = [UIImage imageNamed:@"left-arrow-gray-th.png"];
+    UIImage * btnImage = [UIImage imageNamed:@"left-arrow-gray-th.png"];
     [back setImage:btnImage forState:UIControlStateNormal];
     
     //back.backgroundColor = [UIColor blueColor]; //
