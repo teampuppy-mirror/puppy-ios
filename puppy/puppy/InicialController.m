@@ -109,6 +109,21 @@
     self.txtFieldSenha.delegate = self;
     self.textFieldEmail.delegate = self;
     
+    [self adjustView:self.txtFieldNome];
+    [self adjustView:self.txtFieldSenha];
+    [self adjustView:self.textFieldEmail];
+    
+
+    
+}
+
+
+-(void)adjustView:(UIView*)view{
+    view.layer.borderWidth = 2.0f;
+    view.layer.borderColor = [[UIColor grayColor] CGColor];//[[UIColor colorWithHexString:@"#d7d7d7"];CGColor];
+    view.layer.cornerRadius = 2;
+    view.clipsToBounds      = YES;
+    view.backgroundColor = [UIColor whiteColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -217,6 +232,8 @@
                                                   object:nil];
 }
 
+
+
 -(void)createCover{
 
     UIImage *cover = [UIImage imageNamed:@"bg.png"];
@@ -226,8 +243,13 @@
     self.imageCover.clipsToBounds = YES;
     
     self.imageCover = [[UIImageView alloc] initWithImage:cover];
-    self.btnAccount.backgroundColor = [UIColor whiteColor];
+    
+    [self adjustView:self.btnAccount];
+    [self adjustView:self.btnRegister];
+    
+    
     self.btnAccount.tintColor = [UIColor colorWithHexString:@"#6D6D6C"];
+    
     
     
     self.btnRegister.backgroundColor = [UIColor colorWithHexString:@"#D0C4C1"];
@@ -235,6 +257,9 @@
     
     [self.btnRegister addTarget:self action:@selector(btnRegisterClick) forControlEvents:UIControlEventTouchUpInside];
     [self.btnJaTenhoCadastro addTarget:self action:@selector(btnJaTenhoCadastroClick) forControlEvents:UIControlEventTouchUpInside];
+    
+
+    
     
 }
 
