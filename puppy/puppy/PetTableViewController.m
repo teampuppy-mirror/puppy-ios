@@ -9,6 +9,8 @@
 #import "PetTableViewController.h"
 #import "UIColor+hexString.h"
 #import "EnviarMensagemViewController.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "AFHTTPSessionManager.h"
 
 #define HeaderHeight  100
 
@@ -31,7 +33,7 @@
     self.tableView.contentInset = UIEdgeInsetsMake(HeaderHeight, 0, 0, 0);
     self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y + 70, self.tableView.frame.size.width, self.tableView.frame.size.height);
     
-
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -39,7 +41,7 @@
 }
 
 -(void)createProfileInfo:(NSString *)genero{
-
+    
     self.labelGenero.frame = CGRectMake(10.0, 10.0, self.view.frame.size.width, 20);
     self.labelReplyGenero.frame = CGRectMake(10.0, 30.0, self.view.frame.size.width, 20);
     self.labelEspecie.frame = CGRectMake(150.0, 10.0, self.view.frame.size.width, 20);
@@ -55,7 +57,7 @@
     
     self.labelFaixa.frame = CGRectMake(10.0, 10.0, self.view.frame.size.width, 20);
     self.labelReplyFaixa.frame = CGRectMake(10.0, 30.0, self.view.frame.size.width, 20);
- 
+    
     self.btnAdotar.frame = CGRectMake(0, 0, self.view.frame.size.width, 60);
     self.btnAdotar.backgroundColor = [UIColor colorWithHexString:@"#212121"];
     self.btnAdotar.tintColor = [UIColor whiteColor];
@@ -125,7 +127,7 @@
 }
 
 -(void)adjustLabelCurtidasNumber{
-        self.labelNumCurtidas.text = [NSString stringWithFormat:@"%ld",(long)_selectedPet.numCurtidas];
+    self.labelNumCurtidas.text = [NSString stringWithFormat:@"%ld",(long)_selectedPet.numCurtidas];
 }
 
 -(void)likePressed{
@@ -162,8 +164,8 @@
     self.petImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view sendSubviewToBack:_petImageView];
     
-
-
+    
+    
     
     
     UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0, 320.f, 90.f)];
@@ -202,11 +204,11 @@
     back.frame = buttonRect;
     self.petImageView.frame = imgRect;
     grayBack.frame = imgRect;
-//    if (scrollView == self.tableView) {
-//        if (scrollView.contentOffset.y > 0) {
-//            scrollView.contentOffset = CGPointZero;
-//        }
-//    }
+    //    if (scrollView == self.tableView) {
+    //        if (scrollView.contentOffset.y > 0) {
+    //            scrollView.contentOffset = CGPointZero;
+    //        }
+    //    }
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -231,6 +233,31 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (IBAction)btnEntrarClick:(id)sender {
+    
+    
+    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager new];
+    
+    
+    [manager POST:@"http://puppy.app.hackinpoa.tsuru.io/denuncia"
+       parameters:@{@"email": _selectedPet.idDoProtetor,
+                    @"password": _selectedPet.nome,
+                    @"nome": _selectedPet.nome,
+                    }
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              NSLog(@"JSON: %@", responseObject);
+              
+              if(((NSNumber*)[responseObject valueForKey:@"code"]).integerValue == 200){
+                  
+                  //bypass
+              }
+          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              NSLog(@"Error: %@", error);
+          }];
+    
+    
 }
 
 @end

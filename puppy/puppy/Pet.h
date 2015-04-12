@@ -11,6 +11,7 @@
 @interface Pet : NSObject
 
 @property NSString * nome;
+@property NSInteger * idPet;
 @property NSString * cor;
 @property NSString * especie;
 @property NSString * porte;

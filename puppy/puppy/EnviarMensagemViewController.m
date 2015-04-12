@@ -69,6 +69,16 @@
     
 }
 
+-(void)enviarMsg{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enviada!"
+                                                      message:@"Mensagem Enviada com Sucesso."
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    [message show];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

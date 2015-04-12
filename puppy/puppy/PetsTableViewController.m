@@ -22,20 +22,19 @@
 
 -(void)getPetsOnWebService{
     
-    
-    
     NSDictionary * dicPets = [CMRequest get:@"http://puppy.app.hackinpoa.tsuru.io/pets"].data;
     NSArray * pets = [dicPets valueForKey:@"pets"];
     
     for(int i=0;i<pets.count-1;i++){
         NSDictionary * currentPet = pets[i];
         Pet * pet = [[Pet alloc]init];
-
+        
         //pet.urlMiniatura = [currentPet valueForKey:@"miniatura"];
         pet.urlFoto = [currentPet valueForKey:@"foto"];
         pet.especie = [currentPet valueForKey:@"especie"];
         pet.porte = [currentPet valueForKey:@"porte"];
         pet.nome = [currentPet valueForKey:@"nome"];
+        pet.idPet = ((NSNumber *)[currentPet valueForKey:@"id_pet"]).integerValue;
         pet.cor = [currentPet valueForKey:@"cor"];
         pet.porte = [currentPet valueForKey:@"porte"];
         pet.especie = [currentPet valueForKey:@"especie"];
@@ -68,12 +67,12 @@
     dispatch_queue_t myCustomQueue = dispatch_queue_create("com.example.MyCustomQueue", NULL);
     dispatch_async(myCustomQueue, ^{
         [self getPetsOnWebService];
-            
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                               [self.tableView reloadData];
-                               
-                           });
+        
+        dispatch_async(dispatch_get_main_queue(),
+                       ^{
+                           [self.tableView reloadData];
+                           
+                       });
     });
     
     
@@ -81,7 +80,7 @@
     
     
     [super viewDidLoad];
-
+    
 }
 
 -(void)addFilterButton{
@@ -122,6 +121,8 @@
     Pet * pet = _pets[indexPath.row];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     
     UIImageView * imageViewMiniatura = [[UIImageView alloc]init];
     UIView * grayBackgroundMiniatura = [[UIView alloc]init];
@@ -162,17 +163,17 @@
     dispatch_queue_t myCustomQueue = dispatch_queue_create("com.example.MyCustomQueue", NULL);
     dispatch_async(myCustomQueue, ^{
         NSData * info = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:pet.urlMiniatura]];
-            if(info){
+        if(info){
             
-                        dispatch_async(dispatch_get_main_queue(),
-                                       ^{
-                                           imageViewMiniatura.image =[[UIImage alloc]initWithData:info];
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               imageViewMiniatura.image =[[UIImage alloc]initWithData:info];
                                [UIView animateWithDuration:0.3 animations:^{
                                    imageViewMiniatura.alpha = 1.0;
                                }];
                                
                            });
-            }
+        }
     });
     imageViewMiniatura.frame = CGRectMake(15, 15, 100, 100);
     [cell addSubview:imageViewMiniatura];
