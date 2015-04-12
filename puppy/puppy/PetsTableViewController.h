@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Pet.h"
 
-@interface PetsTableViewController : UITableViewController
+@interface PetsTableViewController : UITableViewController <UIActionSheetDelegate>
 @property NSMutableArray * pets;
 @property Pet * selectedPet;
 @end

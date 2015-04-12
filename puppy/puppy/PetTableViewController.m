@@ -22,9 +22,13 @@
 @implementation PetTableViewController{
     UIImageView * grayBack;
     UIButton *  back;
+    UIImageView * imgViewHearth;
 }
 
 - (void)viewDidLoad {
+    
+    
+
     [super viewDidLoad];
     [self addHeaderTableView:@"teste"];
     [self createProfileInfo:@"teste"];
@@ -64,7 +68,7 @@
     self.btnDenunciar.frame = CGRectMake(0, 0, self.view.frame.size.width, 60);
     self.btnAdotar.titleLabel.text = @"QUERO CONHECER";
     
-    UIImageView * imgViewHearth = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"hearth"]];
+    imgViewHearth = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"hearth"]];
     imgViewHearth.frame = CGRectMake(0, 0, 30, 30);
     imgViewHearth.center = CGPointMake(45, self.btnAdotar.center.y);
     [self.btnAdotar addSubview:imgViewHearth];
@@ -224,6 +228,15 @@
     [back addTarget:self action:@selector(goBackView) forControlEvents:UIControlEventTouchUpInside];
     self.petImageView.frame = CGRectMake(0,-HeaderHeight-20, self.view.frame.size.width, 220);
     [super viewWillAppear:animated];
+    
+    
+    NSNumber * value = [[NSUserDefaults standardUserDefaults] valueForKey:[NSString stringWithFormat:@"%ld%@",(long)_selectedPet.idPet,[[NSUserDefaults standardUserDefaults] valueForKey:@"email"]]];
+    
+    if(value.integerValue == 1){
+        self.btnAdotar.enabled = NO;
+        [self.btnAdotar setTitle:@"MENSAGEM JÁ ENVIADA" forState:UIControlStateNormal];
+        [imgViewHearth removeFromSuperview];
+    }
     
 }
 

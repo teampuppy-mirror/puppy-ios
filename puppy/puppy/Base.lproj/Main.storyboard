@@ -299,6 +299,7 @@
             <objects>
                 <tableViewController id="eBB-2N-UcV" customClass="PetsTableViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="9NE-yJ-ltr"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="iOl-2N-4ja" kind="show" identifier="goToPet" id="h4A-hh-3a8"/>
                     </connections>

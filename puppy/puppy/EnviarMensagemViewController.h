@@ -10,7 +10,7 @@
 #import "Pet.h"
 #import "User.h"
 
-@interface EnviarMensagemViewController : UIViewController
+@interface EnviarMensagemViewController : UIViewController <UIAlertViewDelegate>
 @property Pet * selectedPet;
 @property User * user;
 @end

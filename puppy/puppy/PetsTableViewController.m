@@ -29,18 +29,20 @@
         NSDictionary * currentPet = pets[i];
         Pet * pet = [[Pet alloc]init];
         
-        //pet.urlMiniatura = [currentPet valueForKey:@"miniatura"];
+        pet.urlMiniatura = [currentPet valueForKey:@"miniatura"];
         pet.urlFoto = [currentPet valueForKey:@"foto"];
         pet.especie = [currentPet valueForKey:@"especie"];
         pet.porte = [currentPet valueForKey:@"porte"];
         pet.nome = [currentPet valueForKey:@"nome"];
-        pet.idPet = ((NSNumber *)[currentPet valueForKey:@"id_pet"]).integerValue;
+        pet.idPet = ((NSNumber *)[currentPet valueForKey:@"id"]).integerValue;
         pet.cor = [currentPet valueForKey:@"cor"];
         pet.porte = [currentPet valueForKey:@"porte"];
         pet.especie = [currentPet valueForKey:@"especie"];
         pet.faixaEtaria = [currentPet valueForKey:@"idade"];
         pet.localizacao = [currentPet valueForKey:@"localizacao"];
         NSInteger sexo = ((NSNumber *)[currentPet valueForKey:@"sexo"]).integerValue;
+        
+        
         
         NSDictionary * protetor = [currentPet valueForKey:@"protetor"];
         
@@ -61,9 +63,34 @@
     }
 }
 
+-(void)buttonClicked{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Opções:"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Desconectar-se",nil];
+    actionSheet.delegate = self;
+    
+    [actionSheet showInView:self.view];
+    
+    
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex==1){
+    
+    }
+    
+    if(buttonIndex==0){
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"logado"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 - (void)viewDidLoad {
     _pets = [[NSMutableArray alloc]init];
-    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonClicked)];
     dispatch_queue_t myCustomQueue = dispatch_queue_create("com.example.MyCustomQueue", NULL);
     dispatch_async(myCustomQueue, ^{
         [self getPetsOnWebService];

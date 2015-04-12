@@ -127,6 +127,10 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    if([[NSUserDefaults standardUserDefaults] valueForKey:@"logado"]){
+        [self performSegueWithIdentifier:@"bypass" sender:nil];
+    };
+    
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow)

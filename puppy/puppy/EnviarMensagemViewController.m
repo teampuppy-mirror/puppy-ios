@@ -61,6 +61,8 @@
     btnEnviar.frame = CGRectMake(10,self.view.frame.size.height - 70 , self.view.frame.size.width - 20, 60);
     [btnEnviar setTitle:@"Enviar" forState:UIControlStateNormal];
     
+    [btnEnviar addTarget:self action:@selector(enviarMsg) forControlEvents:UIControlEventTouchUpInside];
+    
     btnEnviar.backgroundColor = [UIColor colorWithHexString:@"#212121"];
     [self.view addSubview:textView];
     [self.view addSubview:btnEnviar];
@@ -76,7 +78,15 @@
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];
     [message show];
+    message.delegate = self;
     
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [[NSUserDefaults standardUserDefaults] setValue:@1 forKey:[NSString stringWithFormat:@"%ld%@",(long)_selectedPet.idPet,[[NSUserDefaults standardUserDefaults] valueForKey:@"email"]]];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
