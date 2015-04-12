@@ -8,6 +8,15 @@
 
 #import "User.h"
 
+
+static User * instance;
+
 @implementation User
 
++(User*)sharedUser{
+    if(instance==nil){
+        instance = [[User alloc]init];
+    }
+    return instance;
+}
 @end

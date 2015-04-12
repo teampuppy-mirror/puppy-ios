@@ -170,6 +170,7 @@
                         <outlet property="textFieldEmail" destination="cwL-zn-f1I" id="T5V-7k-Vtg"/>
                         <outlet property="txtFieldNome" destination="fZf-9c-hvD" id="cS4-wg-Rwt"/>
                         <outlet property="txtFieldSenha" destination="mgv-Bc-OtV" id="u3M-Vr-Yjx"/>
+                        <segue destination="eBB-2N-UcV" kind="show" identifier="bypass" id="7Dv-MU-H0w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -271,7 +272,6 @@
                         <outlet property="btnCriar" destination="GW9-Sa-juY" id="6Kx-Ya-4qj"/>
                         <outlet property="textEmail" destination="EYM-IU-aBo" id="2bI-KI-Rjh"/>
                         <outlet property="textSenha" destination="293-Os-AED" id="2rI-GY-cHE"/>
-                        <segue destination="eBB-2N-UcV" kind="show" identifier="bypass" id="fs3-gt-hlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVd-M6-MiH" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,5 +10,9 @@
 
 @interface User : NSObject
 @property NSString * nome;
+@property NSString * auth;
 @property NSString * email;
+
++(User*)sharedUser;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "UIColor+hexString.h"
+
 @interface AppDelegate ()
 
 @end
@@ -29,6 +30,11 @@
                                                            [UIFont fontWithName:@"HelveticaNeue-Regular" size:21.0], NSFontAttributeName, nil]];
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    
+    
+
+    
     return YES;
 }
 

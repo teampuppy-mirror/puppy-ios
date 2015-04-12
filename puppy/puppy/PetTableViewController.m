@@ -26,6 +26,9 @@
     self.title = @"Pet";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(HeaderHeight, 0, 0, 0);
+    self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y + 70, self.tableView.frame.size.width, self.tableView.frame.size.height);
+    
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -207,9 +210,18 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.petImageView.frame = CGRectMake(0,-HeaderHeight, self.view.frame.size.width, HeaderHeight);
+    //[self.navigationController setNavigationBarHidden:YES animated:YES];
+    UIButton * back = [[UIButton alloc]init];
+    back.backgroundColor = [UIColor blueColor];
+    back.frame = CGRectMake(15, -HeaderHeight+5, 15, 20);
+    [self.view addSubview:back];
+
+    self.petImageView.frame = CGRectMake(0,-HeaderHeight-20, self.view.frame.size.width, 200);
     [super viewWillAppear:animated];
     
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
 }
 
 @end

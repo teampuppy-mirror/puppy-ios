@@ -21,4 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *blackVIew;
 @property (weak, nonatomic) IBOutlet UIButton *btnAccount;
 
+
+
+
 @end

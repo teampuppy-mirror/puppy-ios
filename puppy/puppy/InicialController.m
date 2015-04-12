@@ -8,7 +8,9 @@
 
 #import "InicialController.h"
 #import "UIColor+hexString.h"
-#import "CMRequest.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "AFHTTPSessionManager.h"
+#import "User.h"
 
 @interface InicialController ()
 @property BOOL isRegister;
@@ -83,6 +85,23 @@
 
 - (void)viewDidLoad {
     
+    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager new];
+    [manager POST:@"http://puppy.app.hackinpoa.tsuru.io/user"
+       parameters:@{@"email": @"Novouser29",
+                    @"password": @"123",
+                    @"nome": self.txtFieldNome.text,
+                    }
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              NSLog(@"JSON: %@", responseObject);
+              
+              if(((NSNumber*)[responseObject valueForKey:@"code"]).integerValue == 200){
+                  
+              }
+          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              NSLog(@"Error: %@", error);
+          }];
+
+    
     NSLog(@"Origem: %f",self.view.frame.origin.y);
     self.originalOrigin = self.view.frame.origin;
     self.upOriginY = self.view.frame.origin.y - 190.0;
@@ -131,15 +150,65 @@
     return YES;
 }
 
+-(void)bypass{
+     [self performSegueWithIdentifier:@"bypass" sender:nil];
+}
+
 - (IBAction)btnEntrarClick:(id)sender {
     
     if(_isRegister){
-        CMRequestModel * retorno = [CMRequest post:@"http://puppy.app.hackinpoa.tsuru.io/user" :[NSString stringWithFormat:@"{email: \"%@\",password: \"%@\",nome: \"%@\"}",self.textFieldEmail.text,self.txtFieldSenha.text,self.txtFieldNome.text]];
+        AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager new];
         
-            NSLog(@"%d",retorno.status);
+        
+        [manager POST:@"http://puppy.app.hackinpoa.tsuru.io/user"
+           parameters:@{@"email": self.textFieldEmail.text,
+                        @"password": self.txtFieldSenha.text,
+                        @"nome": self.txtFieldNome.text,
+                        }
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  NSLog(@"JSON: %@", responseObject);
+
+                  if(((NSNumber*)[responseObject valueForKey:@"code"]).integerValue == 200){
+
+                      [[NSUserDefaults standardUserDefaults] setObject:self.textFieldEmail.text forKey:@"email"];
+#pragma warning Nao esta seguro, sera modificado para keychain futuramente.
+                      [[NSUserDefaults standardUserDefaults] setObject:self.txtFieldSenha.text forKey:@"senha"];
+                      [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"logado"];
+                      
+                      
+                      [self performSegueWithIdentifier:@"bypass" sender:nil];
+                      
+                      
+                      //bypass
+                  }
+              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"Error: %@", error);
+              }];
+        
         
         
     }else{
+        
+        
+        AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager new];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.textFieldEmail.text password:self.txtFieldSenha.text];
+        
+        [manager GET:@"http://puppy.app.hackinpoa.tsuru.io/user"
+          parameters:nil
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 
+                 [[NSUserDefaults standardUserDefaults] setObject:self.textFieldEmail.text forKey:@"email"];
+#pragma warning Nao esta seguro, sera modificado para keychain futuramente.
+                 [[NSUserDefaults standardUserDefaults] setObject:self.txtFieldSenha.text forKey:@"senha"];
+                 [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"logado"];
+                 
+                 [self performSegueWithIdentifier:@"bypass" sender:nil];
+                 
+             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 NSLog(@"Error: %@", error);
+             }];
+
         
     }
 }
