@@ -23,7 +23,7 @@
     [super viewDidLoad];
     [self addHeaderTableView:@"teste"];
     [self createProfileInfo:@"teste"];
-    self.title = @"Perfil do Pet";
+    self.title = @"Pet";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(HeaderHeight, 0, 0, 0);
 }

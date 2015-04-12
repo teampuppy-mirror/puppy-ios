@@ -17,6 +17,7 @@
 @property NSString * localizacao;
 @property NSString * faixaEtaria;
 @property NSString * genero;
+@property NSString * nomeProtetor;
 @property NSInteger numCurtidas;
 @property BOOL like;
 

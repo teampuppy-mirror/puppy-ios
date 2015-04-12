@@ -26,6 +26,8 @@
     pet.nome = @"Juarezinho";
     pet.cor = @"Branquinho";
     pet.porte = @"Filhote";
+    pet.especie = @"cachorro";
+    pet.nomeProtetor = @"ONG patas dadas";
     pet.localizacao = @"Porto Alegre";
     pet.especie = @"Cachorro";
     pet.urlMiniatura = @"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg";

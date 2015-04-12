@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Pet.h"
+#import "User.h"
 
 @interface EnviarMensagemViewController : UIViewController
 @property Pet * selectedPet;
+@property User * user;
 @end

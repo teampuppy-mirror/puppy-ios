@@ -13,6 +13,7 @@
 		425C5BDE1AD95989006DB9B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425C5BDC1AD95989006DB9B2 /* Main.storyboard */; };
 		425C5BE01AD95989006DB9B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425C5BDF1AD95989006DB9B2 /* Images.xcassets */; };
 		425C5BEF1AD95989006DB9B2 /* puppyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 425C5BEE1AD95989006DB9B2 /* puppyTests.m */; };
+		42896C741ADA043E0013F520 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 42896C731ADA043E0013F520 /* User.m */; };
 		429064CF1AD9635000B06EC5 /* dog-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 429064CE1AD9635000B06EC5 /* dog-5.jpg */; };
 		429064D41AD978B300B06EC5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064D31AD978B300B06EC5 /* LoginViewController.m */; };
 		429064D71AD978D400B06EC5 /* PetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429064D61AD978D400B06EC5 /* PetTableViewController.m */; };
@@ -49,6 +50,8 @@
 		425C5BE81AD95989006DB9B2 /* puppyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = puppyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		425C5BED1AD95989006DB9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425C5BEE1AD95989006DB9B2 /* puppyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = puppyTests.m; sourceTree = "<group>"; };
+		42896C721ADA043E0013F520 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		42896C731ADA043E0013F520 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		429064CE1AD9635000B06EC5 /* dog-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dog-5.jpg"; sourceTree = "<group>"; };
 		429064D21AD978B300B06EC5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		429064D31AD978B300B06EC5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				DCB9CCDA1AD9C374003BC302 /* InicialController.m */,
 				429064E11AD993BA00B06EC5 /* Pet.h */,
 				429064E21AD993BA00B06EC5 /* Pet.m */,
+				42896C721ADA043E0013F520 /* User.h */,
+				42896C731ADA043E0013F520 /* User.m */,
 				429064DE1AD97D7000B06EC5 /* EnviarMensagemViewController.h */,
 				429064DF1AD97D7000B06EC5 /* EnviarMensagemViewController.m */,
 				429064DB1AD9796700B06EC5 /* PerfilViewController.h */,
@@ -277,6 +282,7 @@
 				429064D41AD978B300B06EC5 /* LoginViewController.m in Sources */,
 				DCB9CCDE1AD9D4C1003BC302 /* Login.m in Sources */,
 				DCB9CCDB1AD9C374003BC302 /* InicialController.m in Sources */,
+				42896C741ADA043E0013F520 /* User.m in Sources */,
 				429064E01AD97D7000B06EC5 /* EnviarMensagemViewController.m in Sources */,
 				DCB9CCD51AD9C2BA003BC302 /* CMRequest.m in Sources */,
 				429064E31AD993BA00B06EC5 /* Pet.m in Sources */,
