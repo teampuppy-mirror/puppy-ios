@@ -20,17 +20,18 @@
     self.navigationItem.hidesBackButton = YES;
 }
 
-- (void)viewDidLoad {
-    _pets = [[NSMutableArray alloc]init];
-    self.view.backgroundColor = [UIColor lightGrayColor];
+-(void)getPetsOnWebService{
+    
+    
+    
     NSDictionary * dicPets = [CMRequest get:@"http://puppy.app.hackinpoa.tsuru.io/pets"].data;
     NSArray * pets = [dicPets valueForKey:@"pets"];
-    
     
     for(int i=0;i<pets.count-1;i++){
         NSDictionary * currentPet = pets[i];
         NSLog(@"%@",currentPet);
         Pet * pet = [[Pet alloc]init];
+
         pet.urlMiniatura = [currentPet valueForKey:@"miniatura"];
         pet.urlFoto = [currentPet valueForKey:@"foto"];
         pet.especie = [currentPet valueForKey:@"especie"];
@@ -55,11 +56,29 @@
             if(sexo == 2){
                 pet.genero = @"Macho";
             }else{
-                pet.genero = @"Macho";
+                pet.genero = @"Indefinido";
             }
         }
         [_pets addObject:pet];
     }
+}
+
+- (void)viewDidLoad {
+    _pets = [[NSMutableArray alloc]init];
+    
+    dispatch_queue_t myCustomQueue = dispatch_queue_create("com.example.MyCustomQueue", NULL);
+    dispatch_async(myCustomQueue, ^{
+        [self getPetsOnWebService];
+            
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               [self.tableView reloadData];
+                               
+                           });
+    });
+    
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
     self.title = @"Pets";
     
     

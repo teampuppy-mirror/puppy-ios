@@ -268,6 +268,7 @@
     }completion:^(BOOL finished){
         [UIView animateWithDuration:0.3 animations:^{
             self.btnRegister.alpha = 1.0;
+            [self.btnAccount setTitle:@"ENTRAR" forState:UIControlStateNormal];
         }completion:^(BOOL finished){
             self.btnAccount.enabled = YES;
             self.btnRegister.enabled = YES;
@@ -292,6 +293,7 @@
             self.lblNome.alpha = 1.0;
             self.txtFieldNome.alpha = 1.0;
             self.btnJaTenhoCadastro.alpha = 1.0;
+            [self.btnAccount setTitle:@"REGISTRAR" forState:UIControlStateNormal];
         }completion:^(BOOL finished){
             self.btnAccount.enabled = YES;
             self.btnJaTenhoCadastro.enabled = YES;
