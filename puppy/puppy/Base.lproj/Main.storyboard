@@ -48,22 +48,6 @@
                                     <action selector="btnEntrarClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aWa-24-4yt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwv-fq-Xmb">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="ENCONTRAR UM AMIGO">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="227" y="199" width="46" height="30"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="11" y="581" width="300" height="60"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="eBB-2N-UcV" kind="show" identifier="goToApp" id="TQd-zZ-Uvn"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="exemplo@puppy.com.br" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cwL-zn-f1I">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -147,7 +131,6 @@
                                 <exclude reference="oyO-vN-Ied"/>
                                 <exclude reference="RNT-pH-BKG"/>
                                 <exclude reference="4Sj-uf-fco"/>
-                                <exclude reference="rwv-fq-Xmb"/>
                                 <exclude reference="cwL-zn-f1I"/>
                                 <exclude reference="mgv-Bc-OtV"/>
                                 <exclude reference="hFC-JY-4yo"/>
@@ -156,11 +139,6 @@
                                 <exclude reference="oQ6-a8-ifz"/>
                                 <exclude reference="fZf-9c-hvD"/>
                                 <exclude reference="CDj-Eb-Vxp"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="subviews">
-                                <include reference="rwv-fq-Xmb"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -182,9 +160,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="v5a-v9-DSd"/>
                     <connections>
+                        <outlet property="blackVIew" destination="oyO-vN-Ied" id="Rlf-07-cUa"/>
                         <outlet property="btnAccount" destination="4Sj-uf-fco" id="5gP-rP-32A"/>
                         <outlet property="btnJaTenhoCadastro" destination="CDj-Eb-Vxp" id="MaD-iY-ZSl"/>
-                        <outlet property="btnLogin" destination="rwv-fq-Xmb" id="TA2-LF-RfF"/>
                         <outlet property="btnRegister" destination="HKG-Ov-WYc" id="Mtj-e0-YKI"/>
                         <outlet property="imageCover" destination="Czh-ld-kYl" id="yOf-VA-4ec"/>
                         <outlet property="imageLogo" destination="RNT-pH-BKG" id="TYz-qi-GfW"/>
@@ -870,7 +848,4 @@
         <image name="bg.png" width="640" height="1136"/>
         <image name="logo-login" width="159" height="160"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="TQd-zZ-Uvn"/>
-    </inferredMetricsTieBreakers>
 </document>

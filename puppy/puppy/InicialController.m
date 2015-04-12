@@ -12,23 +12,22 @@
 
 @interface InicialController ()
 @property BOOL isRegister;
-@property CGPoint originalCenter;
+@property CGPoint originalOrigin;
+@property float upOriginY;
 @end
 
 @implementation InicialController
 
 
-#define kOFFSET_FOR_KEYBOARD 30.0
-
 -(void)keyboardWillShow {
     // Animate the current view out of the way
     if (self.view.frame.origin.y >= 0)
     {
-        [self setViewMovedUp:YES];
+        [self setViewMovedUp:NO];
     }
     else if (self.view.frame.origin.y < 0)
     {
-        [self setViewMovedUp:NO];
+        [self setViewMovedUp:YES];
     }
 }
 
@@ -56,31 +55,39 @@
 //method to move the view up/down whenever the keyboard is shown/dismissed
 -(void)setViewMovedUp:(BOOL)movedUp
 {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
     
-    CGRect rect = self.view.frame;
-    if (movedUp)
-    {
-        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
-        // 2. increase the size of the view so that the area behind the keyboard is covered up.
-        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
-    }
-    else
-    {
-        // revert back to the normal state.
-        rect.origin.y += kOFFSET_FOR_KEYBOARD;
-    }
-    self.view.frame = rect;
-    
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect rect = self.view.frame;
+        if (movedUp)
+        {
+            // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
+            // 2. increase the size of the view so that the area behind the keyboard is covered up.
+            rect.origin.y = self.upOriginY;
+        }
+        else
+        {
+            // revert back to the normal state.
+            rect.origin.y = self.originalOrigin.y;
+        }
+        self.view.frame = rect;
+    }];
+
+
 }
 
+-(void)blackViewClicked{
+    [self.view endEditing:YES];
+}
 
 - (void)viewDidLoad {
-    self.originalCenter = self.view.center;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    NSLog(@"Origem: %f",self.view.frame.origin.y);
+    self.originalOrigin = self.view.frame.origin;
+    self.upOriginY = self.view.frame.origin.y - 150.0;
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(blackViewClicked)];
+    
+    [self.blackVIew addGestureRecognizer:tap];
+    
     _isRegister = NO;
     [super viewDidLoad];
     [self createCover];
@@ -109,15 +116,7 @@
                                                object:nil];
 }
 
-- (void)keyboardDidShow:(NSNotification *)note
-{
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-300);
-}
 
-- (void)keyboardDidHide:(NSNotification *)note
-{
-    self.view.center = self.originalCenter;
-}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

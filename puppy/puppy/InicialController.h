@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblNome;
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldNome;
 @property (weak, nonatomic) IBOutlet UIButton *btnJaTenhoCadastro;
+@property (weak, nonatomic) IBOutlet UIView *blackVIew;
 
 @end
