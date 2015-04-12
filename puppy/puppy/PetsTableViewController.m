@@ -36,6 +36,7 @@
         pet.cor = [currentPet valueForKey:@"cor"];
         pet.porte = [currentPet valueForKey:@"porte"];
         pet.especie = [currentPet valueForKey:@"especie"];
+        pet.faixaEtaria = [currentPet valueForKey:@"idade"];
         //pet.localizacao = [currentPet valueForKey:@"localizacao"];
         int sexo = ((NSNumber *)[currentPet valueForKey:@"sexo"]).intValue;
         if(sexo == 1){//femea

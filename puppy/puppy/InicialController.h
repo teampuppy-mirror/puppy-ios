@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InicialController : UIViewController
+@interface InicialController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageCover;
 @property IBOutlet UIButton *btnLogin;
 @property (weak, nonatomic) IBOutlet UIImageView *imageLogo;

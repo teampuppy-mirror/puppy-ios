@@ -8,14 +8,80 @@
 
 #import "InicialController.h"
 #import "UIColor+hexString.h"
+#import "CMRequest.h"
 
 @interface InicialController ()
-
+@property BOOL isRegister;
+@property CGPoint originalCenter;
 @end
 
 @implementation InicialController
 
+
+#define kOFFSET_FOR_KEYBOARD 30.0
+
+-(void)keyboardWillShow {
+    // Animate the current view out of the way
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+
+-(void)keyboardWillHide {
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)sender
+{
+
+        //move the main view, so that the keyboard does not hide it.
+        if  (self.view.frame.origin.y >= 0)
+        {
+            [self setViewMovedUp:YES];
+        }
+}
+
+//method to move the view up/down whenever the keyboard is shown/dismissed
+-(void)setViewMovedUp:(BOOL)movedUp
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
+    
+    CGRect rect = self.view.frame;
+    if (movedUp)
+    {
+        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
+        // 2. increase the size of the view so that the area behind the keyboard is covered up.
+        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
+    }
+    else
+    {
+        // revert back to the normal state.
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
+    }
+    self.view.frame = rect;
+    
+    [UIView commitAnimations];
+}
+
+
 - (void)viewDidLoad {
+    self.originalCenter = self.view.center;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    _isRegister = NO;
     [super viewDidLoad];
     [self createCover];
     
@@ -24,14 +90,64 @@
     self.btnJaTenhoCadastro.alpha = 0.0;
     self.btnJaTenhoCadastro.enabled = NO;
     
+    self.txtFieldNome.delegate = self;
+    self.txtFieldSenha.delegate = self;
+    self.textFieldEmail.delegate = self;
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)keyboardDidShow:(NSNotification *)note
+{
+    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-300);
+}
+
+- (void)keyboardDidHide:(NSNotification *)note
+{
+    self.view.center = self.originalCenter;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (IBAction)btnEntrarClick:(id)sender {
+    
+    if(_isRegister){
+        CMRequestModel * retorno = [CMRequest post:@"http://puppy.app.hackinpoa.tsuru.io/user" :[NSString stringWithFormat:@"{email: \"%@\",password: \"%@\",nome: \"%@\"",self.textFieldEmail.text,self.txtFieldSenha.text,self.txtFieldNome.text]];
+        
+        if(retorno.success){
+            NSLog(retorno.data);
+        }
+        
+    }else{
+        
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
 }
 
 -(void)createCover{
@@ -61,6 +177,7 @@
 }
 
 -(void)btnJaTenhoCadastroClick{
+    _isRegister = NO;
     self.btnAccount.enabled = NO;
     self.btnJaTenhoCadastro.enabled = NO;
     [UIView animateWithDuration:0.3 animations:^{
@@ -79,6 +196,7 @@
 }
 
 -(void)btnRegisterClick{
+    _isRegister = YES;
     self.btnAccount.enabled = NO;
     self.btnRegister.enabled = NO;
     [UIView animateWithDuration:0.3 animations:^{
