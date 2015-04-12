@@ -85,21 +85,6 @@
 
 - (void)viewDidLoad {
     
-    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager new];
-    [manager POST:@"http://puppy.app.hackinpoa.tsuru.io/user"
-       parameters:@{@"email": @"Novouser29",
-                    @"password": @"123",
-                    @"nome": self.txtFieldNome.text,
-                    }
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              NSLog(@"JSON: %@", responseObject);
-              
-              if(((NSNumber*)[responseObject valueForKey:@"code"]).integerValue == 200){
-                  
-              }
-          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              NSLog(@"Error: %@", error);
-          }];
 
     
     NSLog(@"Origem: %f",self.view.frame.origin.y);
@@ -127,7 +112,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    if([[NSUserDefaults standardUserDefaults] valueForKey:@"logado"]){
+    if(((NSNumber*)[[NSUserDefaults standardUserDefaults] valueForKey:@"logado"]).integerValue){
         [self performSegueWithIdentifier:@"bypass" sender:nil];
     };
     
