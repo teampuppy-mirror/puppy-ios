@@ -31,7 +31,8 @@
         NSDictionary * currentPet = pets[i];
         NSLog(@"%@",currentPet);
         Pet * pet = [[Pet alloc]init];
-        pet.urlMiniatura = [currentPet valueForKey:@"foto"];
+        pet.urlMiniatura = [currentPet valueForKey:@"miniatura"];
+        pet.urlFoto = [currentPet valueForKey:@"foto"];
         pet.especie = [currentPet valueForKey:@"especie"];
         pet.porte = [currentPet valueForKey:@"porte"];
         pet.nome = [currentPet valueForKey:@"nome"];
@@ -42,7 +43,7 @@
         pet.localizacao = [currentPet valueForKey:@"localizacao"];
         NSInteger sexo = ((NSNumber *)[currentPet valueForKey:@"sexo"]).integerValue;
         
-        NSDictionary * protetor = [pet valueForKey:@"protetor"];
+        NSDictionary * protetor = [currentPet valueForKey:@"protetor"];
         
         pet.nomeProtetor = [protetor valueForKey:@"nome"];
         pet.idDoProtetor = [protetor valueForKey:@"id"];

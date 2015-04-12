@@ -17,7 +17,9 @@
 
 @end
 
-@implementation PetTableViewController
+@implementation PetTableViewController{
+    UIImageView * grayBack;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -142,13 +144,13 @@
     self.petImageView.alpha = 0.0;
     dispatch_queue_t myCustomQueue = dispatch_queue_create("com.example.MyCustomQueue", NULL);
     dispatch_async(myCustomQueue, ^{
-        NSData * info = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:_selectedPet.urlMiniatura]];
+        NSData * info = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:_selectedPet.urlFoto]];
         if(info){
             
             dispatch_async(dispatch_get_main_queue(),
                            ^{
                                self.petImageView.image = [[UIImage alloc]initWithData:info];
-                               [UIView animateWithDuration:0.3 animations:^{
+                               [UIView animateWithDuration:0.15 animations:^{
                                    self.petImageView.alpha = 1.0;
                                }];
                                
@@ -171,6 +173,10 @@
     UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(12, 100, self.view.frame.size.width, HeaderHeight)];
     
     tableHeaderView.backgroundColor = [UIColor whiteColor];
+    grayBack = [[UIImageView alloc]init];
+    grayBack.backgroundColor = [UIColor lightGrayColor];
+    grayBack.frame = CGRectMake(0,-HeaderHeight-20, self.view.frame.size.width, 220);
+    [tableHeaderView addSubview:grayBack];
     [tableHeaderView addSubview:self.petImageView];
     
     self.tableView.tableHeaderView = tableHeaderView;
@@ -189,8 +195,9 @@
     CGFloat yPos = -scrollView.contentOffset.y;
         CGRect imgRect = self.petImageView.frame;
         imgRect.origin.y = scrollView.contentOffset.y;
-        imgRect.size.height = HeaderHeight+yPos;
-        self.petImageView.frame = imgRect;
+    imgRect.size.height = HeaderHeight+yPos;
+    self.petImageView.frame = imgRect;
+    grayBack.frame = imgRect;
 //    if (scrollView == self.tableView) {
 //        if (scrollView.contentOffset.y > 0) {
 //            scrollView.contentOffset = CGPointZero;
@@ -206,7 +213,7 @@
     [back setImage:btnImage forState:UIControlStateNormal];
     
     //back.backgroundColor = [UIColor blueColor]; //
-    back.frame = CGRectMake(10, -HeaderHeight+10, 15, 20);
+    back.frame = CGRectMake(10, -HeaderHeight+13, 15, 25);
     [self.view addSubview:back];
     [back addTarget:self action:@selector(goBackView) forControlEvents:UIControlEventTouchUpInside];
     self.petImageView.frame = CGRectMake(0,-HeaderHeight-20, self.view.frame.size.width, 220);

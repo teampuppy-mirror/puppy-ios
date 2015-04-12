@@ -16,6 +16,7 @@
 @property NSString * porte;
 @property NSString * faixaEtaria;
 @property NSString * genero;
+@property NSString * urlFoto;
 
 @property NSString * nomeProtetor;
 @property NSString * idDoProtetor;

@@ -16,7 +16,7 @@
 @implementation EnviarMensagemViewController
 
 -(void)viewWillDisappear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 - (void)viewDidLoad {
     self.user = [[User alloc]init];
