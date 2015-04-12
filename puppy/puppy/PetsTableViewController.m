@@ -8,6 +8,7 @@
 
 #import "PetsTableViewController.h"
 #import "PetTableViewController.h"
+#import "CMRequest.h"
 
 @interface PetsTableViewController ()
 
@@ -21,20 +22,34 @@
 
 - (void)viewDidLoad {
     _pets = [[NSMutableArray alloc]init];
+    NSDictionary * dicPets = [CMRequest get:@"http://puppy.app.hackinpoa.tsuru.io/pets"].data;
+    NSArray * pets = [dicPets valueForKey:@"pets"];
+    
+    
+    for(int i=0;i<pets.count-1;i++){
+        NSDictionary * currentPet = pets[i];
+        Pet * pet = [[Pet alloc]init];
+        pet.urlMiniatura = [currentPet valueForKey:@"foto"];
+        pet.especie = [currentPet valueForKey:@"especie"];
+        pet.porte = [currentPet valueForKey:@"porte"];
+        pet.nome = [currentPet valueForKey:@"nome"];
+        pet.cor = [currentPet valueForKey:@"cor"];
+        pet.porte = [currentPet valueForKey:@"porte"];
+        pet.especie = [currentPet valueForKey:@"especie"];
+        //pet.localizacao = [currentPet valueForKey:@"localizacao"];
+        int sexo = ((NSNumber *)[currentPet valueForKey:@"sexo"]).intValue;
+        if(sexo == 1){//femea
+            pet.genero = @"Femêa";
+        }else{
+            if(sexo == 2){
+                pet.genero = @"Macho";
+            }
+        }
+        [_pets addObject:pet];
+    }
     self.title = @"Pets";
-    Pet * pet = [[Pet alloc]init];
-    pet.nome = @"Juarezinho";
-    pet.cor = @"Branquinho";
-    pet.porte = @"Filhote";
-    pet.especie = @"cachorro";
-    pet.nomeProtetor = @"ONG patas dadas";
-    pet.localizacao = @"Porto Alegre";
-    pet.especie = @"Cachorro";
-    pet.urlMiniatura = @"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg";
-    pet.fotos = @[@"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg",@"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg",@"http://wallpaper.ultradownloads.com.br/45586_Papel-de-Parede-Filhote-de-Cachorro_1024x768.jpg"];
     
     
-    [_pets addObject:pet];
     [self addFilterButton];
     [super viewDidLoad];
 

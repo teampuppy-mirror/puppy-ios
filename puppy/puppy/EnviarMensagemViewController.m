@@ -35,7 +35,7 @@
     textView.frame = CGRectMake(10, 120, self.view.frame.size.width - 20, self.view.frame.size.height - 200);
 
     
-    textView.text = [NSString stringWithFormat:@"Olá protetor %@, estou entrando em contato pois estou interessado em conhecer o %@ %@.", _selectedPet.nomeProtetor, _selectedPet.genero,_selectedPet.nome];
+    textView.text = [NSString stringWithFormat:@"Olá protetor %@, estou entrando em contato pois estou interessado em conhecer o %@ %@.", _selectedPet.nomeProtetor, _selectedPet.especie,_selectedPet.nome];
     textView.text = [textView.text stringByAppendingString:[NSString stringWithFormat:@"Por favor, se possivel entrar em contato comigo pelo e-mail: %@\n\n",self.user.email]];
     textView.text = [textView.text stringByAppendingString:[NSString stringWithFormat:@"Atenciosamente, %@",self.user.nome]];
     

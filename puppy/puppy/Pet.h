@@ -14,11 +14,16 @@
 @property NSString * cor;
 @property NSString * especie;
 @property NSString * porte;
-@property NSString * localizacao;
 @property NSString * faixaEtaria;
 @property NSString * genero;
+
 @property NSString * nomeProtetor;
+@property NSString * idDoProtetor;
+
+@property NSString * localizacao;
+
 @property NSInteger numCurtidas;
+
 @property BOOL like;
 
 @property NSString * urlMiniatura;

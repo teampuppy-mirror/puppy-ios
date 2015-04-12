@@ -22,20 +22,27 @@
                                     <rect key="frame" x="0.0" y="0.0" width="410" height="807"/>
                                 </variation>
                             </imageView>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyO-vN-Ied">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="766"/>
+                                </variation>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-login" translatesAutoresizingMaskIntoConstraints="NO" id="RNT-pH-BKG">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="67" y="84" width="192" height="204"/>
+                                    <rect key="frame" x="65" y="38" width="192" height="204"/>
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Sj-uf-fco">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="LOGIN">
+                                <state key="normal" title="ENTRAR">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="11" y="400" width="300" height="60"/>
+                                    <rect key="frame" x="27" y="375" width="270" height="60"/>
                                 </variation>
                                 <connections>
                                     <segue destination="Wvb-ts-1Hb" kind="show" id="xzs-Co-L0R"/>
@@ -51,20 +58,104 @@
                                     <rect key="frame" x="227" y="199" width="46" height="30"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="11" y="322" width="300" height="60"/>
+                                    <rect key="frame" x="11" y="581" width="300" height="60"/>
                                 </variation>
                                 <connections>
                                     <segue destination="eBB-2N-UcV" kind="show" id="TQd-zZ-Uvn"/>
                                 </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="exemplo@puppy.com.br" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cwL-zn-f1I">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="104" y="257" width="193" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-Bc-OtV">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="104" y="305" width="193" height="30"/>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFC-JY-4yo">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="27" y="309" width="54" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKG-Ov-WYc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="AINDA NÃO TEM CADASTRO?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="34" y="465" width="263" height="60"/>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ker-F2-M1E">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="27" y="360" width="51" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQ6-a8-ifz">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="27" y="261" width="47" height="21"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome do Protetor" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fZf-9c-hvD">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="103" y="356" width="193" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDj-Eb-Vxp">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                <state key="normal" title="Ops, lembrei que já tenho cadastro!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="227" y="199" width="46" height="30"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="11" y="513" width="300" height="60"/>
+                                </variation>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Czh-ld-kYl"/>
+                                <exclude reference="oyO-vN-Ied"/>
                                 <exclude reference="RNT-pH-BKG"/>
                                 <exclude reference="4Sj-uf-fco"/>
                                 <exclude reference="rwv-fq-Xmb"/>
+                                <exclude reference="cwL-zn-f1I"/>
+                                <exclude reference="mgv-Bc-OtV"/>
+                                <exclude reference="hFC-JY-4yo"/>
+                                <exclude reference="HKG-Ov-WYc"/>
+                                <exclude reference="Ker-F2-M1E"/>
+                                <exclude reference="oQ6-a8-ifz"/>
+                                <exclude reference="fZf-9c-hvD"/>
+                                <exclude reference="CDj-Eb-Vxp"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -75,17 +166,32 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Czh-ld-kYl"/>
+                                <include reference="oyO-vN-Ied"/>
                                 <include reference="RNT-pH-BKG"/>
                                 <include reference="4Sj-uf-fco"/>
+                                <include reference="cwL-zn-f1I"/>
+                                <include reference="mgv-Bc-OtV"/>
+                                <include reference="hFC-JY-4yo"/>
+                                <include reference="HKG-Ov-WYc"/>
+                                <include reference="Ker-F2-M1E"/>
+                                <include reference="oQ6-a8-ifz"/>
+                                <include reference="fZf-9c-hvD"/>
+                                <include reference="CDj-Eb-Vxp"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="v5a-v9-DSd"/>
                     <connections>
                         <outlet property="btnAccount" destination="4Sj-uf-fco" id="5gP-rP-32A"/>
+                        <outlet property="btnJaTenhoCadastro" destination="CDj-Eb-Vxp" id="MaD-iY-ZSl"/>
                         <outlet property="btnLogin" destination="rwv-fq-Xmb" id="TA2-LF-RfF"/>
+                        <outlet property="btnRegister" destination="HKG-Ov-WYc" id="Mtj-e0-YKI"/>
                         <outlet property="imageCover" destination="Czh-ld-kYl" id="yOf-VA-4ec"/>
                         <outlet property="imageLogo" destination="RNT-pH-BKG" id="TYz-qi-GfW"/>
+                        <outlet property="lblNome" destination="Ker-F2-M1E" id="86V-AG-Yhi"/>
+                        <outlet property="textFieldEmail" destination="cwL-zn-f1I" id="T5V-7k-Vtg"/>
+                        <outlet property="txtFieldNome" destination="fZf-9c-hvD" id="cS4-wg-Rwt"/>
+                        <outlet property="txtFieldSenha" destination="mgv-Bc-OtV" id="u3M-Vr-Yjx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

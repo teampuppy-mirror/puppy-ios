@@ -137,9 +137,22 @@
 
 -(void)addHeaderTableView:(NSString *)image{
     
-    
-    UIImage *image1 = [UIImage imageNamed:@"dog-5.jpg"];
-    self.petImageView.image = image1;
+    self.petImageView.alpha = 0.0;
+    dispatch_queue_t myCustomQueue = dispatch_queue_create("com.example.MyCustomQueue", NULL);
+    dispatch_async(myCustomQueue, ^{
+        NSData * info = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:_selectedPet.urlMiniatura]];
+        if(info){
+            
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               self.petImageView.image = [[UIImage alloc]initWithData:info];
+                               [UIView animateWithDuration:0.3 animations:^{
+                                   self.petImageView.alpha = 1.0;
+                               }];
+                               
+                           });
+        }
+    });
     self.petImageView.frame = CGRectMake(0,0, self.view.frame.size.width, HeaderHeight);
     self.petImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view sendSubviewToBack:_petImageView];

@@ -19,6 +19,10 @@
     [super viewDidLoad];
     [self createCover];
     
+    self.lblNome.alpha = 0.0;
+    self.txtFieldNome.alpha = 0.0;
+    self.btnJaTenhoCadastro.alpha = 0.0;
+    self.btnJaTenhoCadastro.enabled = NO;
     
 }
 
@@ -39,16 +43,57 @@
     self.imageCover.clipsToBounds = YES;
     
     self.imageCover = [[UIImageView alloc] initWithImage:cover];
-    self.btnLogin.backgroundColor = [UIColor whiteColor];
-    self.btnAccount.backgroundColor = [UIColor colorWithHexString:@"#D0C4C1"];
-    self.btnLogin.tintColor = [UIColor colorWithHexString:@"#212121"];
+    self.btnAccount.backgroundColor = [UIColor whiteColor];
     self.btnAccount.tintColor = [UIColor colorWithHexString:@"#6D6D6C"];
+    
+    
+    self.btnRegister.backgroundColor = [UIColor colorWithHexString:@"#D0C4C1"];
+    self.btnRegister.tintColor = [UIColor colorWithHexString:@"#6D6D6C"];
+    
+    [self.btnRegister addTarget:self action:@selector(btnRegisterClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnJaTenhoCadastro addTarget:self action:@selector(btnJaTenhoCadastroClick) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)btnJaTenhoCadastroClick{
+    self.btnAccount.enabled = NO;
+    self.btnJaTenhoCadastro.enabled = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.lblNome.alpha = 0.0;
+        self.txtFieldNome.alpha = 0.0;
+        self.btnJaTenhoCadastro.alpha = 0.0;
+    }completion:^(BOOL finished){
+        [UIView animateWithDuration:0.3 animations:^{
+            self.btnRegister.alpha = 1.0;
+            self.btnAccount.frame = CGRectMake(self.btnAccount.frame.origin.x, self.btnAccount.frame.origin.y-50, self.btnAccount.frame.size.width, self.btnAccount.frame.size.height);
+        }completion:^(BOOL finished){
+            self.btnAccount.enabled = YES;
+            self.btnRegister.enabled = YES;
+        }];
+    }];
+}
+
+-(void)btnRegisterClick{
+    self.btnAccount.enabled = NO;
+    self.btnRegister.enabled = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.btnRegister.alpha = 0.0;
+        self.btnAccount.frame = CGRectMake(self.btnAccount.frame.origin.x, self.btnAccount.frame.origin.y+50, self.btnAccount.frame.size.width, self.btnAccount.frame.size.height);
+    }completion:^(BOOL finished){
+        [UIView animateWithDuration:0.3 animations:^{
+            self.lblNome.alpha = 1.0;
+            self.txtFieldNome.alpha = 1.0;
+            self.btnJaTenhoCadastro.alpha = 1.0;
+        }completion:^(BOOL finished){
+            self.btnAccount.enabled = YES;
+            self.btnJaTenhoCadastro.enabled = YES;
+        }];
+    }];
 }
 
 /*

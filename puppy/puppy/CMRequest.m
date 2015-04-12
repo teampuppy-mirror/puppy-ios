@@ -14,9 +14,6 @@
 
 +(CMRequestModel *)get:(NSString *)url
 {
-    //webserviceURL
-    url = [@"teste" stringByAppendingString: url];
-    NSLog(@"%@", url);
     
     NSURL *urlFormat = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:urlFormat];
