@@ -14,6 +14,7 @@
 @property BOOL isRegister;
 @property CGPoint originalOrigin;
 @property float upOriginY;
+@property CGRect origemBotao;
 @end
 
 @implementation InicialController
@@ -55,22 +56,23 @@
 //method to move the view up/down whenever the keyboard is shown/dismissed
 -(void)setViewMovedUp:(BOOL)movedUp
 {
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        CGRect rect = self.view.frame;
-        if (movedUp)
-        {
-            // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
-            // 2. increase the size of the view so that the area behind the keyboard is covered up.
-            rect.origin.y = self.upOriginY;
-        }
-        else
-        {
-            // revert back to the normal state.
-            rect.origin.y = self.originalOrigin.y;
-        }
-        self.view.frame = rect;
-    }];
+            [UIView animateWithDuration:0.3 animations:^{
+                CGRect rect = self.view.frame;
+                if (movedUp)
+                {
+                    // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
+                    // 2. increase the size of the view so that the area behind the keyboard is covered up.
+                    
+                    rect.origin.y = self.upOriginY;
+                }
+                else
+                {
+                    // revert back to the normal state.
+                    rect.origin.y = self.originalOrigin.y;
+                }
+                self.view.frame = rect;
+            }];
+
 
 
 }
@@ -80,9 +82,11 @@
 }
 
 - (void)viewDidLoad {
+    
     NSLog(@"Origem: %f",self.view.frame.origin.y);
     self.originalOrigin = self.view.frame.origin;
-    self.upOriginY = self.view.frame.origin.y - 150.0;
+    self.upOriginY = self.view.frame.origin.y - 190.0;
+    
     
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(blackViewClicked)];
     
@@ -116,7 +120,10 @@
                                                object:nil];
 }
 
-
+-(void)viewDidAppear:(BOOL)animated{
+    
+    self.origemBotao = self.btnAccount.frame;
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -127,11 +134,10 @@
 - (IBAction)btnEntrarClick:(id)sender {
     
     if(_isRegister){
-        CMRequestModel * retorno = [CMRequest post:@"http://puppy.app.hackinpoa.tsuru.io/user" :[NSString stringWithFormat:@"{email: \"%@\",password: \"%@\",nome: \"%@\"",self.textFieldEmail.text,self.txtFieldSenha.text,self.txtFieldNome.text]];
+        CMRequestModel * retorno = [CMRequest post:@"http://puppy.app.hackinpoa.tsuru.io/user" :[NSString stringWithFormat:@"{email: \"%@\",password: \"%@\",nome: \"%@\"}",self.textFieldEmail.text,self.txtFieldSenha.text,self.txtFieldNome.text]];
         
-        if(retorno.success){
-            NSLog(retorno.data);
-        }
+            NSLog(@"%d",retorno.status);
+        
         
     }else{
         
@@ -179,6 +185,9 @@
     _isRegister = NO;
     self.btnAccount.enabled = NO;
     self.btnJaTenhoCadastro.enabled = NO;
+    self.textFieldEmail.enabled = NO;
+    self.txtFieldSenha.enabled = NO;
+    self.txtFieldNome.enabled = NO;
     [UIView animateWithDuration:0.3 animations:^{
         self.lblNome.alpha = 0.0;
         self.txtFieldNome.alpha = 0.0;
@@ -186,10 +195,12 @@
     }completion:^(BOOL finished){
         [UIView animateWithDuration:0.3 animations:^{
             self.btnRegister.alpha = 1.0;
-            self.btnAccount.frame = CGRectMake(self.btnAccount.frame.origin.x, self.btnAccount.frame.origin.y-50, self.btnAccount.frame.size.width, self.btnAccount.frame.size.height);
         }completion:^(BOOL finished){
             self.btnAccount.enabled = YES;
             self.btnRegister.enabled = YES;
+            self.textFieldEmail.enabled = YES;
+            self.txtFieldSenha.enabled = YES;
+            self.txtFieldNome.enabled = YES;
         }];
     }];
 }
@@ -197,10 +208,12 @@
 -(void)btnRegisterClick{
     _isRegister = YES;
     self.btnAccount.enabled = NO;
+    self.textFieldEmail.enabled = NO;
+    self.txtFieldSenha.enabled = NO;
+    self.txtFieldNome.enabled = NO;
     self.btnRegister.enabled = NO;
     [UIView animateWithDuration:0.3 animations:^{
         self.btnRegister.alpha = 0.0;
-        self.btnAccount.frame = CGRectMake(self.btnAccount.frame.origin.x, self.btnAccount.frame.origin.y+50, self.btnAccount.frame.size.width, self.btnAccount.frame.size.height);
     }completion:^(BOOL finished){
         [UIView animateWithDuration:0.3 animations:^{
             self.lblNome.alpha = 1.0;
@@ -209,6 +222,9 @@
         }completion:^(BOOL finished){
             self.btnAccount.enabled = YES;
             self.btnJaTenhoCadastro.enabled = YES;
+            self.textFieldEmail.enabled = YES;
+            self.txtFieldSenha.enabled = YES;
+            self.txtFieldNome.enabled = YES;
         }];
     }];
 }

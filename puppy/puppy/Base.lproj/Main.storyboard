@@ -42,7 +42,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="27" y="375" width="270" height="60"/>
+                                    <rect key="frame" x="27" y="416" width="270" height="60"/>
                                 </variation>
                                 <connections>
                                     <action selector="btnEntrarClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aWa-24-4yt"/>
@@ -59,7 +59,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-Bc-OtV">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="104" y="305" width="193" height="30"/>
                                 </variation>
@@ -80,7 +80,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="34" y="465" width="263" height="60"/>
+                                    <rect key="frame" x="27" y="493" width="270" height="60"/>
                                 </variation>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ker-F2-M1E">
@@ -120,7 +120,7 @@
                                     <rect key="frame" x="227" y="199" width="46" height="30"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="11" y="513" width="300" height="60"/>
+                                    <rect key="frame" x="11" y="493" width="300" height="60"/>
                                 </variation>
                             </button>
                         </subviews>
@@ -161,7 +161,7 @@
                     <navigationItem key="navigationItem" id="v5a-v9-DSd"/>
                     <connections>
                         <outlet property="blackVIew" destination="oyO-vN-Ied" id="Rlf-07-cUa"/>
-                        <outlet property="btnAccount" destination="4Sj-uf-fco" id="5gP-rP-32A"/>
+                        <outlet property="btnAccount" destination="4Sj-uf-fco" id="qOY-Cn-OZj"/>
                         <outlet property="btnJaTenhoCadastro" destination="CDj-Eb-Vxp" id="MaD-iY-ZSl"/>
                         <outlet property="btnRegister" destination="HKG-Ov-WYc" id="Mtj-e0-YKI"/>
                         <outlet property="imageCover" destination="Czh-ld-kYl" id="yOf-VA-4ec"/>
@@ -322,115 +322,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="9NE-yJ-ltr"/>
                     <connections>
-                        <segue destination="LN4-N3-vlU" kind="show" identifier="goToUserPerfil" id="kkM-V1-fZy"/>
                         <segue destination="iOl-2N-4ja" kind="show" identifier="goToPet" id="h4A-hh-3a8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOA-yw-g47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="520.5" y="191.25"/>
-        </scene>
-        <!--Perfil View Controller-->
-        <scene sceneID="23S-FG-NDA">
-            <objects>
-                <viewController id="LN4-N3-vlU" customClass="PerfilViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="b0U-zT-MA6"/>
-                        <viewControllerLayoutGuide type="bottom" id="NFy-00-X8R"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vRc-qT-CGd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meu perfil:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPs-bP-DUp">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="35" y="113" width="81" height="21"/>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRU-DF-PDM">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Mensagens">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="165" y="277" width="79" height="30"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="9tM-gd-6j6" kind="show" id="3IT-i3-rOJ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="BPs-bP-DUp"/>
-                                <exclude reference="VRU-DF-PDM"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="BPs-bP-DUp"/>
-                                <include reference="VRU-DF-PDM"/>
-                            </mask>
-                        </variation>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hp3-hS-Rpm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1426.5" y="678.75"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="nJ6-Sv-vMi">
-            <objects>
-                <viewController id="9tM-gd-6j6" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9a0-pj-G07"/>
-                        <viewControllerLayoutGuide type="bottom" id="lSW-3P-bSH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="de1-MZ-doi">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="EOq-0m-buN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="112" width="400" height="688"/>
-                                </variation>
-                            </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="P2j-FN-ARv">
-                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
-                                <segments>
-                                    <segment title="Recebidas"/>
-                                    <segment title="Enviadas"/>
-                                </segments>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="74" width="368" height="29"/>
-                                </variation>
-                            </segmentedControl>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="EOq-0m-buN"/>
-                                <exclude reference="P2j-FN-ARv"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="EOq-0m-buN"/>
-                                <include reference="P2j-FN-ARv"/>
-                            </mask>
-                        </variation>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Emg-Vd-gH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2352" y="678.75"/>
         </scene>
         <!--Pet Table View Controller-->
         <scene sceneID="xqT-vC-KXb">
@@ -821,7 +718,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </objects>
-            <point key="canvasLocation" x="1269" y="-125.25"/>
+            <point key="canvasLocation" x="1446" y="191.25"/>
         </scene>
         <!--Enviar Mensagem View Controller-->
         <scene sceneID="Uez-qo-ptj">
@@ -839,7 +736,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDe-f6-m5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2289" y="-45.75"/>
+            <point key="canvasLocation" x="2388" y="191.25"/>
         </scene>
     </scenes>
     <resources>

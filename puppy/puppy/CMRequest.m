@@ -101,8 +101,8 @@
 +(CMRequestModel *)post:(NSString *)url : (NSString *)json
 {
     //webserviceURL
-    url = [@"teste" stringByAppendingString:url];
-    NSLog(@"%@", url);
+    //url = [stringByAppendingString:url];
+    //NSLog(@"%@", url);
     
     CMRequestModel *request = [[CMRequestModel alloc]init];
     NSURL *urlFormat = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
