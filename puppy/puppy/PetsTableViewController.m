@@ -64,33 +64,27 @@
 }
 
 -(void)buttonClicked{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Opções:"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Desconectar-se",nil];
-    actionSheet.delegate = self;
-    
-    [actionSheet showInView:self.view];
-    
+    UIAlertView * mensage = [[UIAlertView alloc]initWithTitle:@"Sair" message:@"Tem certeza que deseja sair?" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Sim, eu desejo sair", nil];
+    [mensage show];
     
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex==1){
-    
-    }
-    
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex==0){
+        
+    }else{
+        
         [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"logado"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
         [self.navigationController popViewControllerAnimated:YES];
+        
     }
 }
 
 - (void)viewDidLoad {
     _pets = [[NSMutableArray alloc]init];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonClicked)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sair" style:UIBarButtonItemStylePlain target:self action:@selector(buttonClicked)];
     dispatch_queue_t myCustomQueue = dispatch_queue_create("com.example.MyCustomQueue", NULL);
     dispatch_async(myCustomQueue, ^{
         [self getPetsOnWebService];

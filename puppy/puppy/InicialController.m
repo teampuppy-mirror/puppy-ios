@@ -131,6 +131,9 @@
         [self performSegueWithIdentifier:@"bypass" sender:nil];
     };
     
+    
+    [self keyboardWillShow];
+    
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow)
